@@ -1,0 +1,687 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<link href="resources/css/EstiloOdontograma.css" rel="stylesheet" type="text/css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript"> 
+	function colorea(form) {
+	
+		if (form.select.value == "0") {
+			$(".arriba").click(function() {
+			 $(this).css("background-color","white");
+			 
+			});
+			$(".centro").click(function() {
+			 $(this).css("background-color","#F3F3F3");
+			});
+			$(".derecha").click(function() {
+			$(this).css("background-color","white");
+			});
+			$(".izquierdo").click(function() {
+			$(this).css("background-color","white");
+			});
+			$(".debajo").click(function() {
+			$(this).css("background-color","white");
+			});
+			return false ;
+		}
+		if (form.select.value == "1") {
+			$(".arriba").click(function() {
+				 $(this).css("background-color","blue");
+				 
+				});
+			$(".centro").click(function() {
+				 $(this).css("background-color","blue");
+				});
+				$(".derecha").click(function() {
+				$(this).css("background-color","blue");
+				});
+				$(".izquierdo").click(function() {
+				$(this).css("background-color","blue");
+				});
+				$(".debajo").click(function() {
+				$(this).css("background-color","blue");
+				});
+			return false ;
+		}
+		if (form.select.value == "2") {
+			    $(".arriba").click(function() {
+			    $(this).css("background-color","green");
+				});
+			    $(".centro").click(function() {
+				$(this).css("background-color","green");
+				});
+				$(".derecha").click(function() {
+				$(this).css("background-color","green");
+				});
+				$(".izquierdo").click(function() {
+				$(this).css("background-color","green");
+				});
+				$(".debajo").click(function() {
+				$(this).css("background-color","green");
+				});
+			return false ;
+		}
+		if (form.select.value == "3") {
+		    $(".arriba").click(function() {
+			    $(this).css("background-color","purple");
+				});
+			    $(".centro").click(function() {
+				$(this).css("background-color","purple");
+				});
+				$(".derecha").click(function() {
+				$(this).css("background-color","purple");
+				});
+				$(".izquierdo").click(function() {
+				$(this).css("background-color","purple");
+				});
+				$(".debajo").click(function() {
+				$(this).css("background-color","purple");
+				});
+			return false ;
+		}
+		if (form.select.value == "4") {
+		    $(".arriba").click(function() {
+			    $(this).css("background-color","yellow");
+				});
+			    $(".centro").click(function() {
+				$(this).css("background-color","yellow");
+				});
+				$(".derecha").click(function() {
+				$(this).css("background-color","yellow");
+				});
+				$(".izquierdo").click(function() {
+				$(this).css("background-color","yellow");
+				});
+				$(".debajo").click(function() {
+				$(this).css("background-color","yellow");
+				});
+			return false ;
+		}
+		if (form.select.value == "5") {
+		    $(".arriba").click(function() {
+			    $(this).css("background-color","orange");
+				});
+			    $(".centro").click(function() {
+				$(this).css("background-color","orange");
+				});
+				$(".derecha").click(function() {
+				$(this).css("background-color","orange");
+				});
+				$(".izquierdo").click(function() {
+				$(this).css("background-color","orange");
+				});
+				$(".debajo").click(function() {
+				$(this).css("background-color","orange");
+				});
+			return false ;
+		}
+		if (form.select.value == "6") {
+		    $(".arriba").click(function() {
+			    $(this).css("background-color","pink");
+				});
+			    $(".centro").click(function() {
+				$(this).css("background-color","pink");
+				});
+				$(".derecha").click(function() {
+				$(this).css("background-color","pink");
+				});
+				$(".izquierdo").click(function() {
+				$(this).css("background-color","pink");
+				});
+				$(".debajo").click(function() {
+				$(this).css("background-color","pink");
+				});
+			return false ;
+		}
+
+
+	}
+	
+    $(document).ready(function (){ 
+    	
+      		   $("#aceptar").click(function colorea(form){
+          		   
+              
+              
+     	   }); 
+    });
+	
+	 
+ </script>
+</h:head>
+<body>
+<div class="DientesSuperiores">
+	<div class="diente">
+		<!--diente 1-->
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+			
+	</div>
+
+	<div class="diente">
+		<!--diente 1-->
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+	
+	</div>
+	
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+	<div class="diente">
+		<!--diente 1-->
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+
+	<div class="diente">
+		<!--diente 1-->
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+<div class="espacio"><pre>  </pre></div>
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+
+	</div>
+
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+	</div>
+	
+	
+	</div>
+	
+	<div class="DientesSuperiores">
+<div class="espacio"><pre>                     </pre></div>
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+	<div class="diente">
+		<!--diente 1-->
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+
+	<div class="diente">
+		<!--diente 1-->
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+<div class="espacio"><pre>  </pre></div>
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+
+	</div>
+
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+
+	</div>
+<div class="DientesSuperiores">
+<div class="espacio"><pre>                     </pre></div>
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+	<div class="diente">
+		<!--diente 1-->
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+
+	<div class="diente">
+		<!--diente 1-->
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+<div class="espacio"><pre>  </pre></div>
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+
+	</div>
+
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+
+	</div>
+	<div class="DientesSuperiores">
+	<div class="diente">
+		<!--diente 1-->
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+	</div>
+
+	<div class="diente">
+		<!--diente 1-->
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+	<div class="diente">
+		<!--diente 1-->
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+
+	<div class="diente">
+		<!--diente 1-->
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+<div class="espacio"><pre>  </pre></div>
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+
+	</div>
+
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+
+	</div>
+	<div class="diente">
+
+		<div class="cuadro arriba click"></div>
+		<div class="cuadro izquierdo click"></div>
+		<div class="cuadro debajo click"></div>
+		<div class="cuadro derecha click"></div>
+		<div class="centro click"></div>
+	</div>
+	
+	
+	</div>
+	<div class="espacio"><pre>                      </pre></div>
+<div class="espacio">
+	<form onsubmit="return colorea(this)">
+	<p:panel id="panel" header="" >
+			<select name="select">
+				<option value="0">Sano:</option>
+				<option value="1">Primer cambio visual en esmalte</option>
+				<option value="2">cambio visual detectable en esmalte</option>
+				<option value="3">Perdida de integridad superficial</option>
+				<option value="4">Sombra subyacente de dentina</option>
+				<option value="5">Cavidad detectable con dentina expuesta</option>
+				<option value="6">Cavidad extensa con dentina visible</option>
+
+			</select> <input type="submit" id="aceptar" value="Aceptar" />
+			</p:panel>
+		</form>
+</div>
+
+
+</body>
+</html>

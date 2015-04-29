@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	
+	</h:head>
+<body>
+	
+	<h:form>
+    <h:panelGrid columns="2" cellpadding="5">
+        
+         <h:outputText value="ApellidosNombres: " />
+        <p:inputText id="ApellidosNombres" value="#{usuarioMBController.apellidosNombres}" />
+       
+
+        <h:outputText value="correo: " />
+        <p:inputText id="correo" value="#{usuarioMBController.correo}" />
+        
+        
+    
+        
+        <h:outputText value="Proyecto: " />        
+        <p:inputText  id="proyecto" value="#{usuarioMBController.idProyecto}"/>
+        
+        
+        
+    
+ 
+ 		<h:outputText value="Usuario: " />
+        <p:inputText id="usuario" value="#{usuarioMBController.login}"/>
+        
+        
+        <h:outputText value="Contraseña: " />
+        <p:password id="feedback" value="#{usuarioMBController.password}" feedback="true" />
+        
+
+ 
+ 
+        
+    </h:panelGrid>
+    
+    
+    
+    <p:commandButton id="addusuario" value="Grabar" actionListener="#{usuarioMBController.addUsuario}" ajax="false"/>
+    <p:commandButton id="reset" value="Borrar" action="#{usuarioMBController.reset}" ajax="false"/>
+ 
+   
+ 
+    <p:messages id="messages" showDetail="true" autoUpdate="true" />
+ 
+  
+ 
+  
+</h:form>
+	
+	
+	
+</body>
+</html>

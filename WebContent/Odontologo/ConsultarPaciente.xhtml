@@ -109,9 +109,11 @@
 
 						<p:column headerText="Nuevo Odontograma">
 
-							<a href="../Odontograma.xhtml" style='text-decoration: none'>Crear</a>
+							<a href="Odontograma.xhtml" style='text-decoration: none'>Crear</a>
 
 						</p:column>
+
+			
 						<p:column headerText="Odontograma">
 
 							<h:selectOneMenu id="txt2"
@@ -124,7 +126,7 @@
 							</h:selectOneMenu>
 
 						</p:column>
-						<p:column headerText="Estado">
+						<p:column headerText="Estado" style="width:50px">
 							<p:cellEditor>
 								<f:facet name="output">
 									<h:outputText value="#{_paciente.estado}" />
@@ -143,7 +145,7 @@
 						</p:column>
 
 
-						<p:column style="width:32px">
+						<p:column style="width:30px">
 							<p:rowEditor />
 						</p:column>
 					</p:dataTable>

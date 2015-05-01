@@ -8,6 +8,7 @@
 <h:head>
 	<link href="resources/css/EstiloOdontograma.css" rel="stylesheet" type="text/css" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<h:outputStylesheet name="./css/style.css" />
 	<script type="text/javascript" src="jquery.js"></script>
 	<script type="text/javascript"> 
 	function colorea(form) {
@@ -157,6 +158,11 @@
  </script>
 </h:head>
 <body>
+		<div id="header">
+			<h1>Bienvenido</h1>
+
+		</div>
+
 <div class="DientesSuperiores">
 	<div class="diente">
 		<!--diente 1-->
@@ -664,8 +670,9 @@
 	
 	
 	</div>
-	<div class="espacio"><pre>                      </pre></div>
+	<div class="espacio"><pre>                         </pre></div>
 <div class="espacio">
+<br></br>
 	<form onsubmit="return colorea(this)">
 	<p:panel id="panel" header="" >
 			<select name="select">

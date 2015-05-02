@@ -71,9 +71,9 @@ Click para editar celda       </f:facet>
               <p:cellEditor>
                   <f:facet name="output"><h:outputText value="#{car.ciudad}" /></f:facet>
                   <f:facet name="input">
-                   <h:selectOneMenu id="txt4" value="#{car.ciudad}"  label="Text 3" required="true" requiredMessage="Seleccione Ciudad">
-                 	<f:selectItem itemLabel	="- Seleccione -" itemValue="sumadre"/>
-                 	<f:selectItems value="#{ciudadMBController.ciu}" />
+                   <h:selectOneMenu id="txt4" value="#{proyectoMBController.ciudad}"  label="Text 3" required="true" requiredMessage="Seleccione Ciudad">
+                 	<f:selectItem itemLabel	="- Seleccione -" itemValue=""/>
+                 	<f:selectItems value="#{ciudadMBController.getCiudadsListNombre()}" />
 	           		</h:selectOneMenu>
                </f:facet>
               </p:cellEditor>

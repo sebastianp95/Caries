@@ -1,5 +1,6 @@
 package com.unbosque.mbController;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +41,7 @@ public class ProyectoManagedBean implements Serializable {
 	private String departamento;
 	private String ciudad;
 	List<Proyecto> proyectoList;
-
+	ArrayList<String> pro;
 	
     public void addProyecto() {
         try {
@@ -66,9 +67,11 @@ public class ProyectoManagedBean implements Serializable {
         }
 
     }
-    public void modificarUsuario(Proyecto proyecto){
+    public void modificarUsuario(Proyecto proyecto) throws IOException{
         try {
         	RequestContext context = RequestContext.getCurrentInstance();
+   		 	FacesContext context1 = FacesContext.getCurrentInstance();
+
             FacesMessage msgs= null;
 
         	System.out.println(getCiudad());
@@ -83,6 +86,8 @@ public class ProyectoManagedBean implements Serializable {
             proyecto.setNombre(getNombre());
           
             getProyectoService().updateProyecto(proyecto);
+			context1.getExternalContext().redirect("ConsultaProyect.xhtml");	
+
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Guardado exitosamente!"));
 
 
@@ -122,7 +127,7 @@ public class ProyectoManagedBean implements Serializable {
     }
 
     public List<String> getProyectosListNombre() {
-    	ArrayList<String> pro = new ArrayList<String>();
+    	pro = new ArrayList<String>();
         proyectoList = new ArrayList<Proyecto>();
         proyectoList.addAll(getProyectoService().getProyectos());
         for (int i = 0; i < proyectoList.size(); i++) {

@@ -3,6 +3,7 @@ package com.unbosque.mbController;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
@@ -10,6 +11,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ComponentSystemEvent;
 import javax.faces.event.ValueChangeEvent;
 import javax.persistence.OneToMany;
 
@@ -42,7 +44,7 @@ public class CiudadManagedBean implements Serializable {
 
 	List<Ciudad> ciudadList;
 	List<String> ciu;
-
+	List<String> ciuno;
 	private Integer id;
 	private String nombre;
 	private String estado;
@@ -93,6 +95,23 @@ public class CiudadManagedBean implements Serializable {
         ciudadList.addAll(getCiudadService().getCiudads());
         return ciudadList;
     }
+    
+    public void getCiudadsLista(ComponentSystemEvent a) {
+        ciudadList = new ArrayList<Ciudad>();
+        ciudadList.addAll(getCiudadService().getCiudads());
+    }
+    
+    public List<String> getCiudadsListNombre() {
+    ciuno = new ArrayList<String>();
+        ciudadList = new ArrayList<Ciudad>();
+        ciudadList.addAll(getCiudadService().getCiudads());
+        for (int i = 0; i < ciudadList.size(); i++) {
+			ciuno.add(ciudadList.get(i).getNombre());
+		}
+		Collections.sort(ciuno);
+        return ciuno;
+    }
+    
     
     public void getCiudadDep(ValueChangeEvent e) {
     	departamento=e.getNewValue().toString();
@@ -179,6 +198,12 @@ public class CiudadManagedBean implements Serializable {
 	}
 	public void setCiu(List<String> ciu) {
 		this.ciu = ciu;
+	}
+	public List<String> getCiuno() {
+		return ciuno;
+	}
+	public void setCiuno(List<String> ciuno) {
+		this.ciuno = ciuno;
 	}
 	
 

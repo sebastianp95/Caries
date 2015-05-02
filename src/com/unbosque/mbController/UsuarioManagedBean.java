@@ -80,7 +80,7 @@ public class UsuarioManagedBean implements Serializable {
 			CifrarClave ci = new CifrarClave();
 			usuario.setApellidosNombres(getApellidosNombres());
 			
-			long treinta = -(30 * 24 * 60 * 60 * 1000) +fecha.getTime();
+			long treinta = (30 * 24 * 60 * 60 * 1000) +fecha.getTime();
 			
 			
 			usuario.setCorreo(getCorreo());

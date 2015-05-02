@@ -16,6 +16,7 @@ import javax.faces.event.ValueChangeEvent;
 import javax.persistence.OneToMany;
 
 import org.primefaces.context.RequestContext;
+import org.primefaces.event.RowEditEvent;
 import org.springframework.dao.DataAccessException;
 
 import com.unbosque.entidad.Departamento;
@@ -89,6 +90,36 @@ public class CiudadManagedBean implements Serializable {
         this.setEstado("");
         this.setDepartamento("");
     }
+
+    public void modificarCiudad(Ciudad ciudad){
+        try {
+        	RequestContext context = RequestContext.getCurrentInstance();
+            FacesMessage msgs= null;
+        	
+            ciudad.setNombre(getNombre());
+            ciudad.setDepto(getDepartamento());
+            ciudad.setEstado(getEstado().charAt(0));
+            
+                 
+           
+           
+            getCiudadService().updateCiudad(ciudad);
+            msgs = new FacesMessage(FacesMessage.SEVERITY_INFO, "Titulo",
+                    "Registro agregado exitosamente.");
+
+        } catch (DataAccessException e) {
+            e.printStackTrace();
+        }
+        
+    }
+
+
+
+public void onRowCancel(RowEditEvent event) {
+	FacesMessage msg = new FacesMessage("Titulo","Cancelar");
+	FacesContext.getCurrentInstance().addMessage(null, msg);
+}
+
 
     public List<Ciudad> getCiudadsList() {
         ciudadList = new ArrayList<Ciudad>();

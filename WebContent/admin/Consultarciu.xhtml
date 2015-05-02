@@ -44,20 +44,20 @@
           <h:form id="form">
            
        
-            <p:panel  header="Consultar Usuario " style="width: 360px; maring: 0 auto;  position: absolute; width: 1200px; height: 420px;left: 200px;top: 140px; margin: 0 0 0 80px;">
+            <p:panel  header="Consultar Ciudad " style="width: 360px; maring: 0 auto;  position: absolute; width: 470px;  left: 200px;top: 140px; margin: 0 0 0 80px;">
  <p:growl id="msgs" showDetail="true"/>
  
-   <p:dataTable id="cars1" var="_usuario" value="#{usuarioMBController.usuariosList}" editable="true" style="margin-bottom:20px"
+   <p:dataTable id="cars1" var="_ciudad" value="#{ciudadMBController.ciudadsList}" editable="true" style="margin-bottom:20px"
     emptyMessage="No hay registros disponibles">
       
  
-       <p:ajax event="rowEdit" listener="#{usuarioMBController.modificarUsuario(_usuario)}" update=":form:msgs" />
-       <p:ajax event="rowEditCancel" listener="#{usuarioMBController.onRowCancel}" update=":form:msgs" />
+       <p:ajax event="rowEdit" listener="#{ciudadMBController.modificarCiudad(_ciudad)}" update=":form:msgs" />
+       <p:ajax event="rowEditCancel" listener="#{ciudadMBController.onRowCancel}" update=":form:msgs" />
  
-       <p:column headerText="Nombres" filterBy="#{_usuario.apellidosNombres}" filterMatchMode="startsWith">
+       <p:column headerText="Nombres" filterBy="#{_ciudad.nombre}" filterMatchMode="startsWith">
            <p:cellEditor>
-               <f:facet name="output"><h:outputText value="#{_usuario.apellidosNombres}" /></f:facet>
-               <f:facet name="input"><p:inputText id="modelInput" value="#{usuarioMBController.apellidosNombres}" style="width:100%" required="true" requiredMessage="Por favor ingrese un nombre" validatorMessage="ingrese solo letras y de 4 a 16 caracteres" >
+               <f:facet name="output"><h:outputText value="#{_ciudad.nombre}" /></f:facet>
+               <f:facet name="input"><p:inputText id="modelInput" value="#{ciudadMBController.nombre}" style="width:100%" required="true" requiredMessage="Por favor ingrese un nombre" validatorMessage="ingrese solo letras y de 4 a 16 caracteres" >
                <f:validateRegex pattern="^[a-zA-Z]+$"  />
        			<f:validateLength minimum="4" maximum="16" />
             </p:inputText>
@@ -66,44 +66,22 @@
                </f:facet>
            </p:cellEditor>
        </p:column>
- 
-       <p:column headerText="correo">
-          
-               <h:outputText value="#{_usuario.correo}" />
-          
-           
-       </p:column>
-       
-         <p:column headerText="IdProyecto">
-           
-               <h:outputText value="#{_usuario.idProyecto}" />
-             
-          
-       </p:column>
- 
-       <p:column headerText="Login">
-           
-              <h:outputText value="#{_usuario.login}" />
-               
-           
-       </p:column>
-       
-       
-        <p:column headerText="Contraseña">
-           <p:cellEditor>
-               <f:facet name="output"><h:outputText value="#{_usuario.password}" /></f:facet>
-               <f:facet name="input"><p:inputText value="#{usuarioMBController.password}" style="width:100%" label="Contraseña" required="true" >
-               <f:validateLength minimum="8" maximum="12" />
-               </p:inputText>
-                
+        <p:column headerText="Departamento">
+              <p:cellEditor>
+                  <f:facet name="output"><h:outputText value="#{_ciudad.depto}" /></f:facet>
+                  <f:facet name="input">
+                   <h:selectOneMenu id="txt2" value="#{ciudadMBController.departamento}"  required="true" requiredMessage="Seleccione Departamento">
+                 	<f:selectItem   itemLabel="- Seleccione -" itemValue=""/>  	
+                 	<f:selectItems value="#{departamentoMBController.getDepartamentosNombre()}" />           
+	            </h:selectOneMenu>
                </f:facet>
-           </p:cellEditor>
-       </p:column>
- 
+              </p:cellEditor>
+          </p:column>
+
  <p:column headerText="Estado">
            <p:cellEditor>
-               <f:facet name="output"><h:outputText value="#{_usuario.estado}" /></f:facet>
-               <f:facet name="input"><p:inputText value="#{usuarioMBController.estado}" style="width:100%" label="Estado" required="true">
+               <f:facet name="output"><h:outputText value="#{_ciudad.estado}" /></f:facet>
+               <f:facet name="input"><p:inputText value="#{ciudadMBController.estado}" style="width:100%" label="Estado" required="true">
                 <f:validateRegex pattern="(A|I)" />
        			<f:validateLength minimum="1" maximum="1" />
                
@@ -119,22 +97,24 @@
            <p:rowEditor />
        </p:column>
    </p:dataTable>
-    
+   
+               <h:outputText value="Exportar" style="color: blue"></h:outputText>
+ 
  <h:commandLink>
-   			<h:graphicImage value="../image/pdf.png" />
+				<h:graphicImage value="../image/pdf.png" />
 				<p:dataExporter type="pdf" target="cars1"
-					fileName="usuariosList" pageOnly="true" />
+					fileName="ciudadsList" pageOnly="true" />
 			</h:commandLink>
 
 			<h:commandLink>
 				<h:graphicImage value="../image/xml.png" />
 				<p:dataExporter type="xls" target="cars1"
-					fileName="usuariosList" pageOnly="true" />
+					fileName="ciudadsList" pageOnly="true" />
 			</h:commandLink>
  
             </p:panel>
+            
 
-	
  
         </h:form>
 

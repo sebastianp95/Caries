@@ -28,6 +28,10 @@ public class Departamento implements java.io.Serializable {
 		this.nombre = nombre;
 		this.estado = estado;
 	}
+	public Departamento(String nombre, char estado) {
+		this.nombre = nombre;
+		this.estado = estado;
+	}
 
 	@Id
 	@Column(name = "id", unique = true, nullable = false)

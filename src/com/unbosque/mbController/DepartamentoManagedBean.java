@@ -13,10 +13,12 @@ import javax.faces.context.FacesContext;
 import javax.persistence.OneToMany;
 
 import org.primefaces.context.RequestContext;
+import org.primefaces.event.RowEditEvent;
 import org.springframework.dao.DataAccessException;
 
 import com.unbosque.entidad.Proyecto;
 import com.unbosque.entidad.Departamento;
+import com.unbosque.entidad.Usuario;
 import com.unbosque.service.DepartamentoService;
 
 @ManagedBean(name = "departamentoMBController")
@@ -76,7 +78,35 @@ public class DepartamentoManagedBean implements Serializable {
         this.setNombre("");
         this.setEstado("");
     }
+	 public void modificarDepartamento(Departamento departamento){
+	        try {
+	        	RequestContext context = RequestContext.getCurrentInstance();
+	            FacesMessage msgs= null;
+	        	
+	            departamento.setNombre(getNombre());
+	            departamento.setEstado(getEstado().charAt(0));
+	            
+	                 
+	           
+	           
+	            getDepartamentoService().updateDepartamento(departamento);
+	            msgs = new FacesMessage(FacesMessage.SEVERITY_INFO, "Titulo",
+	                    "Registro agregado exitosamente.");
 
+	        } catch (DataAccessException e) {
+	            e.printStackTrace();
+	        }
+	        
+	    }
+
+
+
+	public void onRowCancel(RowEditEvent event) {
+		FacesMessage msg = new FacesMessage("Titulo","Cancelar");
+		FacesContext.getCurrentInstance().addMessage(null, msg);
+	}
+
+    
     public List<Departamento> getDepartamentosList() {
         departamentoList = new ArrayList<Departamento>();
         departamentoList.addAll(getDepartamentoService().getDepartamentos());

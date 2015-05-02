@@ -28,6 +28,7 @@ import org.springframework.dao.DataAccessException;
 
 
 
+
 import com.unbosque.entidad.Paciente;
 import com.unbosque.service.PacienteService;
 
@@ -62,7 +63,7 @@ public class PacienteManagedBean implements Serializable {
 
 	private String estado;
 	
-	private Integer idProyecto;
+	private String proyecto;
 
 	private Integer identificacion;
 
@@ -82,7 +83,7 @@ public class PacienteManagedBean implements Serializable {
 				
 			paciente.setNombresApellidos(getNombresApellidos());
 			paciente.setCorreo(getCorreo());
-			paciente.setIdProyecto(getIdProyecto());
+			paciente.setProyecto(getProyecto());
 			paciente.setIdentificacion(getIdentificacion());
 			paciente.setTelefono(getTelefono().toString());
 			paciente.setEstado("A");  
@@ -133,7 +134,7 @@ public class PacienteManagedBean implements Serializable {
     	
 		this.setNombresApellidos("");
 		this.setCorreo("");
-		this.setIdProyecto(0);
+		this.setProyecto("");
 		this.setIdentificacion(0);
 		this.setTelefono("");
 		this.setEstado("");  
@@ -150,7 +151,7 @@ public class PacienteManagedBean implements Serializable {
 
 				paciente.setNombresApellidos(getNombresApellidos());
 				paciente.setCorreo(getCorreo());
-				paciente.setIdProyecto(getIdProyecto());
+				paciente.setProyecto(getProyecto());
 				paciente.setIdentificacion(getIdentificacion());
 				paciente.setTelefono(getTelefono());
 				paciente.setEstado("A");  
@@ -241,12 +242,14 @@ public class PacienteManagedBean implements Serializable {
 		this.id = id;
 	}
 
-	public Integer getIdProyecto() {
-		return idProyecto;
+
+
+	public String getProyecto() {
+		return proyecto;
 	}
 
-	public void setIdProyecto(Integer idProyecto) {
-		this.idProyecto = idProyecto;
+	public void setProyecto(String proyecto) {
+		this.proyecto = proyecto;
 	}
 
 	public Integer getIdentificacion() {

@@ -22,10 +22,6 @@ public class Paciente implements Serializable {
 
 	private String estado;
 
-
-	@Column(name="id_proyecto")
-	private Integer idProyecto;
-
 	private Integer identificacion;
 
 	@Column(name="nombres_apellidos")
@@ -33,6 +29,7 @@ public class Paciente implements Serializable {
 
 
 	private String telefono;
+	private String proyecto;
 
 	public Paciente() {
 	}
@@ -61,13 +58,7 @@ public class Paciente implements Serializable {
 		this.id = id;
 	}
 
-	public Integer getIdProyecto() {
-		return this.idProyecto;
-	}
 
-	public void setIdProyecto(Integer idProyecto) {
-		this.idProyecto = idProyecto;
-	}
 
 	public Integer getIdentificacion() {
 		return this.identificacion;
@@ -92,6 +83,14 @@ public class Paciente implements Serializable {
 
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
+	}
+
+	public String getProyecto() {
+		return proyecto;
+	}
+
+	public void setProyecto(String proyecto) {
+		this.proyecto = proyecto;
 	}
 
 }

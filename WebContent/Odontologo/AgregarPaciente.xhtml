@@ -58,12 +58,10 @@
 
 
 					<h:outputText value="Proyecto: " />
-					<p:inputText id="proyecto"
-					value="#{pacienteMBController.idProyecto}"  required="true" requiredMessage="Por favor datos" >
-        			
-       				<f:validateLength minimum="1" maximum="50"/>
-        
-            		</p:inputText>
+        <h:selectOneMenu id="txt2" value="#{pacienteMBController.proyecto}" required="true" requiredMessage="Seleccione Proyecto">
+        <f:selectItem   itemLabel="- Seleccione -" itemValue=""/>
+        <f:selectItems value="#{proyectoMBController.getProyectosListNombre()}" />
+        </h:selectOneMenu>
 						
 
 

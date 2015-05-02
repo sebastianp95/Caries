@@ -91,7 +91,7 @@ public class UsuarioManagedBean implements Serializable {
 			usuario.setEstado('A');  
      		usuario.setFechaClave(new Timestamp(treinta)); 
      		usuario.setFechaCreacion(new Timestamp(fecha.getTime())); 
-			usuario.setIdProyecto(1); 
+			usuario.setProyecto(getProyecto());
 			usuario.setLogin(getLogin());
 			usuario.setTipoUsuario(getTipoUsuario().charAt(0));
 			usuario.setProyecto(getProyecto());

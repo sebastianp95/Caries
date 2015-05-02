@@ -73,7 +73,7 @@
 										style="width:100%" required="true"
 										requiredMessage="Por favor ingrese un nombre"
 										validatorMessage="ingrese solo letras y de 4 a 16 caracteres">
-										<f:validateRegex pattern="^[a-zA-Z]+$" />
+										<f:validateRegex pattern="^[a-zA-Z]+$"  />
 										<f:validateLength minimum="4" maximum="16" />
 									</p:inputText>
 
@@ -113,8 +113,7 @@
 
 						<p:column headerText="Odontograma">
 
-							<h:selectOneMenu id="txt2" required="true"
-								requiredMessage="Seleccione Odontograma">
+							<h:selectOneMenu id="txt2" >
 								<f:selectItem itemLabel="Seleccione" itemValue="" />
 								<f:selectItems />
 							</h:selectOneMenu>
@@ -139,11 +138,10 @@
 						</p:column>
 
 
-						<p:column style="width:30px">
-							<p:rowEditor />
-						</p:column>
-					</p:dataTable>
-
+       <p:column style="width:32px">
+           <p:rowEditor />
+       </p:column>
+   </p:dataTable>
 				</p:panel>
 
 				<h:commandLink>

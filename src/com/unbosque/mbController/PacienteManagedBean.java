@@ -86,7 +86,7 @@ public class PacienteManagedBean implements Serializable {
 			paciente.setProyecto(getProyecto());
 			paciente.setIdentificacion(getIdentificacion());
 			paciente.setTelefono(getTelefono().toString());
-			paciente.setEstado("A");  
+			paciente.setEstado('A');
 			
 			   getPacienteService().addPaciente(paciente);
 	            message = new FacesMessage(FacesMessage.SEVERITY_INFO, "",
@@ -120,7 +120,7 @@ public class PacienteManagedBean implements Serializable {
 	
 	public String deletePaciente(Paciente paciente) {
 		try {
-			paciente.setEstado("I");
+			paciente.setEstado('I');
 			getPacienteService().updatePaciente(paciente);
 		} catch (DataAccessException e) {
 			e.printStackTrace();
@@ -154,8 +154,7 @@ public class PacienteManagedBean implements Serializable {
 //				paciente.setProyecto(getProyecto());
 //				paciente.setIdentificacion(getIdentificacion());
 //				paciente.setTelefono(getTelefono());
-				paciente.setEstado(getEstado());  
-	          
+				paciente.setEstado(getEstado().charAt(0));  
 	            getPacienteService().updatePaciente(paciente);
 	            msgs = new FacesMessage(FacesMessage.SEVERITY_INFO, "Titulo",
 	                    "Registro agregado exitosamente.");

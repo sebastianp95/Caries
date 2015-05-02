@@ -20,7 +20,7 @@ public class Paciente implements Serializable {
 	
 	private String correo;
 
-	private String estado;
+	private char estado;
 
 	private Integer identificacion;
 
@@ -42,11 +42,13 @@ public class Paciente implements Serializable {
 		this.correo = correo;
 	}
 
-	public String getEstado() {
-		return this.estado;
+
+
+	public char getEstado() {
+		return estado;
 	}
 
-	public void setEstado(String estado) {
+	public void setEstado(char estado) {
 		this.estado = estado;
 	}
 

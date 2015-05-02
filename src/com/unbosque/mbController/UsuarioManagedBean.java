@@ -103,6 +103,9 @@ public class UsuarioManagedBean implements Serializable {
 			    FacesContext.getCurrentInstance().addMessage("Mensaje", new FacesMessage("Exitoso"));
 				enviaMail(getCorreo(),getLogin(),getPassword());
 				getUsuarioService().addUsuario(usuario);
+				System.out.println("sd");
+				logger.info("Se ha registrado un nuevo Usuario");
+
 				reset();
 				}
 			
@@ -315,6 +318,7 @@ public class UsuarioManagedBean implements Serializable {
 				if(usuarioList.get(j).getTipoUsuario().equals('A')&&usuarioList.get(j).getEstado()==('A')){
 					context.getExternalContext().redirect("admin/HomeAdmin.xhtml");	
 					block=0;
+					logger.info("Se ha registrado un nuevo Usuario");
 				}
 				if(usuarioList.get(j).getTipoUsuario().equals('U')&&usuarioList.get(j).getEstado()==('A')){
 					 context.getExternalContext().redirect("Odontologo/HomeOdontologo.xhtml");	
@@ -326,8 +330,6 @@ public class UsuarioManagedBean implements Serializable {
 	    FacesContext.getCurrentInstance().addMessage("login error: ", new FacesMessage("Usuario O Contrasena Invalidos"));
 	  	    if(use.size()!=0){
 		   
-	   System.out.println("entro1");
-	   System.out.println(use.get(use.size()-1));
 	   System.out.println(usuario.getLogin());
 	    if (block>=3&&usuario.getTipoUsuario().equals('U')&&usuario.getLogin().trim().equals(use.get(use.size()-2))) {
 	    	deleteUsuario(usuario);

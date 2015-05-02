@@ -67,6 +67,7 @@ public class UsuarioManagedBean implements Serializable {
 	private Email mail;
 	private String proyecto;
 	private int block;
+	private String newPass;
 	
 	public void addUsuario() {
 		try {
@@ -147,6 +148,41 @@ public class UsuarioManagedBean implements Serializable {
     	
     	      
     }
+    
+    public void cambioContra() throws IOException{
+    	CifrarClave cfr=new CifrarClave();
+    	
+    	 FacesContext context = FacesContext.getCurrentInstance();
+    	Usuario user = getUsuarioService().getUsuarioByLogin(getLogin());
+    System.out.println(user.getLogin());
+    	if (user.getPassword().equals(cfr.cifradoClave(getPassword()))) {
+    		
+    		 user.setPassword(cfr.cifradoClave(getNewPass()));
+	           
+	         if (verificarPass(getNewPass())) {
+	        	 long treinta = (30 * 24 * 60 * 60 * 1000) +fecha.getTime();
+	        	 user.setFechaClave(new Timestamp(treinta));
+	        	 getUsuarioService().updateUsuario(user);
+			    	FacesContext.getCurrentInstance().addMessage("login error: ", new FacesMessage("Exitoso"));
+			    	
+			    	if (user.getTipoUsuario().equals('A')) {
+			    		context.getExternalContext().redirect("HomeAdmin.xhtml");	
+					}
+			    	if (user.getTipoUsuario().equals('U')) {
+			    		context.getExternalContext().redirect("../Odontologo/HomeOdontologo.xhtml");	
+						
+					}
+			    	
+			    	
+				
+			}
+	           
+
+    		
+    	}
+    }
+    
+    
     public boolean verificarUsuario(String usuario){
 		 FacesContext context = FacesContext.getCurrentInstance();
 		
@@ -262,9 +298,9 @@ public class UsuarioManagedBean implements Serializable {
 
 		if(actual<usuario.getFechaClave().getTime()){
 		    FacesContext.getCurrentInstance().addMessage("login error: ", new FacesMessage("Debe Cambiar su clave: "+ ""));
-			 context.getExternalContext().redirect("Login.xhtml");	
+			 context.getExternalContext().redirect("admin/cambioContra.xhtml");	
 
-		}
+		}else{
 		
 		 int j;
 		usuarioList = new ArrayList<Usuario>();
@@ -297,6 +333,7 @@ public class UsuarioManagedBean implements Serializable {
 			
 		}
 	   }
+		}
 	}
 
 
@@ -346,6 +383,14 @@ public class UsuarioManagedBean implements Serializable {
 
 
 
+
+	public String getNewPass() {
+		return newPass;
+	}
+
+	public void setNewPass(String newPass) {
+		this.newPass = newPass;
+	}
 
 	public void setId(Integer id) {
 		this.id = id;

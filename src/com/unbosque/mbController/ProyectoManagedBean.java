@@ -10,7 +10,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import javax.faces.event.ComponentSystemEvent;
 
 import org.primefaces.context.RequestContext;
 import org.primefaces.event.CellEditEvent;
@@ -127,13 +126,15 @@ public class ProyectoManagedBean implements Serializable {
         return proyectoList;
     }
 
-    public void getProyectosListNombre(ComponentSystemEvent e) {
+    public List<String> getProyectosListNombre() {
     	pro = new ArrayList<String>();
         proyectoList = new ArrayList<Proyecto>();
         proyectoList.addAll(getProyectoService().getProyectos());
         for (int i = 0; i < proyectoList.size(); i++) {
         	pro.add(proyectoList.get(i).getNombre());
+			
 		}
+        return pro;
     }
     
     public void onCellEdit(CellEditEvent event) {

@@ -3,7 +3,9 @@ package com.unbosque.mbController;
 import java.io.IOException;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -17,6 +19,8 @@ import javax.faces.event.ComponentSystemEvent;
 import org.primefaces.context.RequestContext;
 import org.primefaces.event.RowEditEvent;
 import org.springframework.dao.DataAccessException;
+
+
 
 
 
@@ -75,12 +79,13 @@ public class UsuarioManagedBean implements Serializable {
 			CifrarClave ci = new CifrarClave();
 			usuario.setApellidosNombres(getApellidosNombres());
 			
+			long treinta = -(30 * 24 * 60 * 60 * 1000) +fecha.getTime();
 			
 			
 			usuario.setCorreo(getCorreo());
 			usuario.setEstado('A');  
-     		usuario.setFechaClave(new Timestamp(fecha.getTime())); 
-			usuario.setFechaCreacion(new Timestamp(fecha.getTime())); 
+     		usuario.setFechaClave(new Timestamp(treinta)); 
+     		usuario.setFechaCreacion(new Timestamp(fecha.getTime())); 
 			usuario.setIdProyecto(1); 
 			usuario.setLogin(getLogin());
 			usuario.setTipoUsuario(getTipoUsuario().charAt(0));
@@ -246,10 +251,21 @@ public class UsuarioManagedBean implements Serializable {
 	}
 
 	public void getLogin1() throws IOException {
+		
 		use.add(getLogin());
 		CifrarClave ci = new CifrarClave();
 		 FacesContext context = FacesContext.getCurrentInstance();
 		 Usuario usuario = getUsuarioService().getUsuarioByLogin(getLogin());
+		 
+		 long actual =fecha.getTime();
+		                                      
+
+		if(actual<usuario.getFechaClave().getTime()){
+		    FacesContext.getCurrentInstance().addMessage("login error: ", new FacesMessage("Debe Cambiar su clave: "+ ""));
+			 context.getExternalContext().redirect("Login.xhtml");	
+
+		}
+		
 		 int j;
 		usuarioList = new ArrayList<Usuario>();
 		usuarioList.addAll(getUsuarioService().getUsuarios());

@@ -11,11 +11,13 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import org.primefaces.context.RequestContext;
+import org.primefaces.event.CellEditEvent;
 import org.springframework.dao.DataAccessException;
 
 import com.unbosque.entidad.Departamento;
 import com.unbosque.entidad.Ciudad;
 import com.unbosque.entidad.Proyecto;
+import com.unbosque.entidad.Usuario;
 import com.unbosque.service.ProyectoService;
 
 @ManagedBean(name = "proyectoMBController")
@@ -31,27 +33,21 @@ public class ProyectoManagedBean implements Serializable {
     public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	public Integer getId() {
-		return id;
-	}
-
-	List<Proyecto> proyectoList;
-
+	
     private Integer id;
 	private String nombre;
 	private String estado;
 	private String departamento;
 	private String ciudad;
-   private List<Proyecto> Proyectos;
+	List<Proyecto> proyectoList;
+
 	
     public void addProyecto() {
         try {
 
             RequestContext context = RequestContext.getCurrentInstance();
             FacesMessage message = null;
-            System.out.println(nombre);
-            System.out.println(ciudad);
-            System.out.println(departamento);
+            
 
             
            Proyecto proyecto = new Proyecto();
@@ -69,6 +65,31 @@ public class ProyectoManagedBean implements Serializable {
             e.printStackTrace();
         }
 
+    }
+    public void modificarUsuario(Proyecto proyecto){
+        try {
+        	RequestContext context = RequestContext.getCurrentInstance();
+            FacesMessage msgs= null;
+
+        	System.out.println(getCiudad());
+        	System.out.println(getDepartamento());
+        	System.out.println(getNombre());
+
+        	
+          //  proyectojurado.setDocenteId(getDocenteId());
+            proyecto.setEstado('A');
+            proyecto.setCiudad(getCiudad());
+            proyecto.setDepto(getDepartamento());
+            proyecto.setNombre(getNombre());
+          
+            getProyectoService().updateProyecto(proyecto);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Guardado exitosamente!"));
+
+
+        } catch (DataAccessException e) {
+            e.printStackTrace();
+        }
+        
     }
     public String deleteProyecto(Proyecto proyecto){
         try {
@@ -96,6 +117,7 @@ public class ProyectoManagedBean implements Serializable {
 //        for (listaProyecto<>list= proyectoList) {
 //			ciudad=getProyectoService().
 //		}
+       
         return proyectoList;
     }
 
@@ -108,6 +130,16 @@ public class ProyectoManagedBean implements Serializable {
 			
 		}
         return pro;
+    }
+    
+    public void onCellEdit(CellEditEvent event) {
+        Object oldValue = event.getOldValue();
+        Object newValue = event.getNewValue();
+         
+        if(newValue != null && !newValue.equals(oldValue)) {
+            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Cell Changed", "Old: " + oldValue + ", New:" + newValue);
+            FacesContext.getCurrentInstance().addMessage(null, msg);
+        }
     }
     
     public ProyectoService getProyectoService() {
@@ -156,11 +188,8 @@ public class ProyectoManagedBean implements Serializable {
 	public void setCiudad(String ciudad) {
 		this.ciudad = ciudad;
 	}
-	public List<Proyecto> getProyectos() {
-		return Proyectos;
-	}
-	public void setProyectos(List<Proyecto> proyectos) {
-		Proyectos = proyectos;
-	}
 
+	public Integer getId() {
+		return id;
+	}
 }

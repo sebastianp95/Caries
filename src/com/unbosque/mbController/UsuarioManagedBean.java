@@ -160,7 +160,10 @@ public class UsuarioManagedBean implements Serializable {
     	CifrarClave cfr=new CifrarClave();
     	
     	 FacesContext context = FacesContext.getCurrentInstance();
-    	Usuario user = getUsuarioService().getUsuarioByLogin(getLogin());
+    	 try {
+    	    	Usuario user = getUsuarioService().getUsuarioByLogin(getLogin());
+
+		
     System.out.println(user.getLogin());
     	if (user.getPassword().equals(cfr.cifradoClave(getPassword()))) {
     		
@@ -187,6 +190,9 @@ public class UsuarioManagedBean implements Serializable {
 
     		
     	}
+    	 } catch (Exception e) {
+    		 FacesContext.getCurrentInstance().addMessage("Mensaje", new FacesMessage("El usuario no existe"));
+ 		}
     }
     
     

@@ -1,11 +1,115 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:p="http://primefaces.org/ui"
+  xmlns:ui="http://java.sun.com/jsf/facelets"> 
 
-<h:head></h:head> 
+<h:head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="./css/style.css"/>
+        
+</h:head> 
 <body> 
-dasd
+<div style="height: 100%">
+
+<div id="header">
+<h1>Bienvenido</h1>
+
+</div>
+
+<div id="nav">
+<h1>
+<br></br>
+<br></br>
+<br></br>
+
+<p:spacer  height="50" />
+
+<a href="HomeAdmin.xhtml" style='text-decoration:none'>Home</a>
+
+<p:spacer width="200" height="10" />
+<a href="agregarUsuario.xhtml" style='text-decoration:none'>Agregar usuario</a>
+
+<p:spacer width="100" height="5" />
+<a href="consultarUsuario.xhtml" style='text-decoration:none'>Consultar usuario </a>
+
+</h1>
+
+</div>
+<div id = "sectionAdm" style="background-image: url(denti.jpg); height: 100%; width: 100%; background-size: cover;" >
+          <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>        
+    <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>        
+    <br></br><br></br><br></br>        
+          <h:form id="form">
+           
+       
+            <p:panel  header="Consultar Usuario " style="width: 360px; maring: 0 auto;  position: absolute; left: 200px;top: 140px; margin: 0 0 0 80px;">
+ <p:growl id="msgs" showDetail="true"/>
+ 
+   <p:dataTable id="cars1" var="_departamento" value="#{departamentoMBController.getDepartamentosList()}" editable="true" style="margin-bottom:20px"
+    emptyMessage="No hay registros disponibles">
+      
+ 
+       <p:ajax event="rowEdit" listener="#{departamentoMBController.modificarDepartamento()}" update=":form:msgs" />
+       <p:ajax event="rowEditCancel" listener="#{departamentoMBController.onRowCancel}" update=":form:msgs" />
+ 
+       <p:column headerText="Nombres" filterBy="#{_departamento.nombre}" filterMatchMode="startsWith">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.nombre}" /></f:facet>
+               <f:facet name="input"><p:inputText id="modelInput" value="#{departamentoMBController.nombre}" style="width:100%" required="true" requiredMessage="Por favor ingrese un nombre" validatorMessage="ingrese solo letras y de 4 a 16 caracteres" >
+               <f:validateRegex pattern="^[a-zA-Z]+$"  />
+       			<f:validateLength minimum="4" maximum="16" />
+            </p:inputText>
+         
+               
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
+
+
+ <p:column headerText="Estado">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.estado}" /></f:facet>
+               <f:facet name="input"><p:inputText value="#{departamentoMBController.estado}" style="width:100%" label="Estado" required="true">
+                <f:validateRegex pattern="(A|I)" />
+       			<f:validateLength minimum="1" maximum="1" />
+               
+               </p:inputText>
+               </f:facet>
+               
+               <p:messages showSummary="false" showDetails="true" />
+           </p:cellEditor>
+       </p:column>
+      
+ 
+       <p:column style="width:32px">
+           <p:rowEditor />
+       </p:column>
+   </p:dataTable>
+ 
+            </p:panel>
+ 
+ <h:commandLink>
+				<h:graphicImage value="../image/pdf.png" />
+				<p:dataExporter type="pdf" target="cars1"
+					fileName="departamentosList" pageOnly="true" />
+			</h:commandLink>
+
+			<h:commandLink>
+				<h:graphicImage value="../image/xml.png" />
+				<p:dataExporter type="xls" target="cars1"
+					fileName="departamentosList" pageOnly="true" />
+			</h:commandLink>
+ 
+        </h:form>
+
+ 
+
+</div><div id="footer">
+ 
+Copyright © W3Schools.com
+</div>
+</div>
 </body> 
 </html>

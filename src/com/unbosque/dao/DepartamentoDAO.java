@@ -39,6 +39,12 @@ public class DepartamentoDAO {
                 .list();
         return (Departamento) list.get(0);
     }
+    public Departamento getDepartamentoByName(String nombre) {
+        List list = getSessionFactory().getCurrentSession()
+                .createQuery("from Departamento where nombre=?").setParameter(0, nombre)
+                .list();
+        return (Departamento) list.get(0);
+    }
 
     public List<Departamento> getDepartamentos() {
         List list = getSessionFactory().getCurrentSession()

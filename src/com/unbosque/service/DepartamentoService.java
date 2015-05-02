@@ -34,6 +34,9 @@ public class DepartamentoService {
     public Departamento getDepartamentoById(int id) {
         return getDepartamentoDAO().getDepartamentoById(id);
     }
+    public Departamento getDepartamentoById(String nombre) {
+        return getDepartamentoDAO().getDepartamentoByName(nombre);
+    }
 
     public List<Departamento> getDepartamentos() {
         return getDepartamentoDAO().getDepartamentos();

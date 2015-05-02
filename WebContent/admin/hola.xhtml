@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:p="http://primefaces.org/ui"
+  xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<h:head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="./css/style.css"/>
+        
+</h:head> 
+<body> 
+<div style="height: 100%">
+
+
+
+
+<div id="header">
+<h1>Bienvenido</h1>
+</div>
+
+
+<div id="section"  style="background-image: url(image/tren.JPG); height: 100%; width: 100%; background-size: cover;">
+ <p:spacer  height="120px" />
+
+
+<h:form id="loginForm">
+           
+            <p:growl id="msg" showDetail="true" life="3000" />
+            <p:panel  header="Login" style="width: 360px; maring: 0 auto;">
+ 
+                <h:panelGrid id="loginPanel" columns="2">
+ 
+                    <h:outputText value="Username" />
+ 
+                    <p:inputText id="username" value="#{usuarioMBController.login}" ></p:inputText>
+ 
+                    <p:spacer></p:spacer>
+ 
+                    <p:message for="username" ></p:message>
+ 
+                    <h:outputText value="Password" />
+ 
+                    <p:password id="password" value="#{usuarioMBController.password}"  feedback="false"></p:password>
+ 
+                    <p:spacer></p:spacer>
+ 
+                    <p:message for="password"></p:message>
+ 
+                    <p:spacer></p:spacer>
+ 
+                    <p:commandButton value="Submit" action="#{usuarioMBController.getLogin1()}" update="loginForm" ajax="true"></p:commandButton>
+ 
+                </h:panelGrid>
+ 
+            </p:panel>
+ 
+        </h:form>
+ <p:spacer  height="300px" />
+ 
+</div>
+
+<div id="footer">
+Copyright © W3Schools.com
+</div>
+</div>
+</body> 
+</html>

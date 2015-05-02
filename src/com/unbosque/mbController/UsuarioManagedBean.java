@@ -1,6 +1,7 @@
 package com.unbosque.mbController;
 
 import java.io.IOException;
+
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
@@ -16,9 +17,11 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ComponentSystemEvent;
 
+import org.apache.log4j.Logger;
 import org.primefaces.context.RequestContext;
 import org.primefaces.event.RowEditEvent;
 import org.springframework.dao.DataAccessException;
+
 
 
 
@@ -45,9 +48,10 @@ public class UsuarioManagedBean implements Serializable {
 	@ManagedProperty(value = "#{UsuarioService}")
 	UsuarioService usuarioService;
 
+	final static Logger logger = Logger.getLogger(UsuarioManagedBean.class);
 
 
-
+	
 
 	ArrayList<String> use= new ArrayList<String>();
 

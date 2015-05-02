@@ -211,11 +211,11 @@ public class UsuarioManagedBean implements Serializable {
 	          //  proyectojurado.setDocenteId(getDocenteId());
 	            usuario.setApellidosNombres(getApellidosNombres());
 	            
-	            usuario.setCorreo(getCorreo());
-	           usuario.setIdProyecto(getIdProyecto());
-	           usuario.setLogin(getLogin());
+	                 
 	           usuario.setPassword(getPassword());
-	          
+	           
+	          usuario.setEstado(getEstado().charAt(0));
+	           
 	            getUsuarioService().updateUsuario(usuario);
 	            msgs = new FacesMessage(FacesMessage.SEVERITY_INFO, "Titulo",
 	                    "Registro agregado exitosamente.");

@@ -150,11 +150,11 @@ public class PacienteManagedBean implements Serializable {
 	        	
 
 				paciente.setNombresApellidos(getNombresApellidos());
-				paciente.setCorreo(getCorreo());
-				paciente.setProyecto(getProyecto());
-				paciente.setIdentificacion(getIdentificacion());
-				paciente.setTelefono(getTelefono());
-				paciente.setEstado("A");  
+//				paciente.setCorreo(getCorreo());
+//				paciente.setProyecto(getProyecto());
+//				paciente.setIdentificacion(getIdentificacion());
+//				paciente.setTelefono(getTelefono());
+				paciente.setEstado(getEstado());  
 	          
 	            getPacienteService().updatePaciente(paciente);
 	            msgs = new FacesMessage(FacesMessage.SEVERITY_INFO, "Titulo",

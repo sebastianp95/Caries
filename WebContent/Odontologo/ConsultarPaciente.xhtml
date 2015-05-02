@@ -57,12 +57,8 @@
 						emptyMessage="No hay registros disponibles">
 
 
-						<p:ajax event="rowEdit"
-							listener="#{pacienteMBController.modificarPaciente(_paciente)}"
-							update=":form:msgs" />
-						<p:ajax event="rowEditCancel"
-							listener="#{pacienteMBController.onRowCancel}"
-							update=":form:msgs" />
+						<p:ajax event="rowEdit" listener="#{pacienteMBController.modificarPaciente(_paciente)}" update=":form:msgs" />
+						<p:ajax event="rowEditCancel" listener="#{pacienteMBController.onRowCancel}" update=":form:msgs" />
 
 						<p:column headerText="Nombres"
 							filterBy="#{_paciente.nombresApellidos}"
@@ -85,6 +81,7 @@
 								</f:facet>
 							</p:cellEditor>
 						</p:column>
+						
 
 						<p:column headerText="correo">
 
@@ -93,7 +90,7 @@
 
 						</p:column>
 
-						<p:column headerText="IdProyecto">
+						<p:column headerText="Proyecto">
 
 							<h:outputText value="#{_paciente.proyecto}" />
 
@@ -109,20 +106,17 @@
 
 						<p:column headerText="Nuevo Odontograma">
 
-							<a href="Odontograma.xhtml" style='text-decoration: none'>Crear</a> 
+							<a href="Odontograma.xhtml" style='text-decoration: none'>Crear</a>
 
 						</p:column>
 
-			
+
 						<p:column headerText="Odontograma">
 
-							<h:selectOneMenu id="txt2"
-								 required="true"
+							<h:selectOneMenu id="txt2" required="true"
 								requiredMessage="Seleccione Odontograma">
 								<f:selectItem itemLabel="Seleccione" itemValue="" />
-								<f:selectItem itemLabel="No Aplica" itemValue="None" />
-								<f:selectItems
-									 />
+								<f:selectItems />
 							</h:selectOneMenu>
 
 						</p:column>

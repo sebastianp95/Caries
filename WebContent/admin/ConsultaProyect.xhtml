@@ -55,6 +55,8 @@ Click para editar celda       </f:facet>
            </p:cellEditor>
        </p:column>
        
+       
+       
         <p:column headerText="Departamento">
               <p:cellEditor>
                   <f:facet name="output"><h:outputText value="#{car.depto}" /></f:facet>
@@ -78,6 +80,21 @@ Click para editar celda       </f:facet>
                </f:facet>
               </p:cellEditor>
           </p:column>
+          
+          <p:column headerText="Estado">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{car.estado}" /></f:facet>
+               <f:facet name="input">
+               <h:selectOneMenu id="txt6" value="#{proyectoMBController.estado}"  required="true" requiredMessage="Seleccione Departamento">
+                 	<f:selectItem   itemLabel="- Seleccione -" itemValue=""/>  	
+                 	<f:selectItem   itemLabel="Activo" itemValue="A"/>  	
+                    <f:selectItem   itemLabel="Inactivo" itemValue="I"/>  	
+                 	
+	            </h:selectOneMenu>
+               
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
  
  		<p:column headerText="Editar" style="width:50px"  >
 					<p:rowEditor />

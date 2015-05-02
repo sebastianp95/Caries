@@ -10,6 +10,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ComponentSystemEvent;
 
 import org.primefaces.context.RequestContext;
 import org.primefaces.event.CellEditEvent;
@@ -41,7 +42,7 @@ public class ProyectoManagedBean implements Serializable {
 	private String departamento;
 	private String ciudad;
 	List<Proyecto> proyectoList;
-	ArrayList<String> pro;
+	List<String> pro;
 	
     public void addProyecto() {
         try {
@@ -80,7 +81,7 @@ public class ProyectoManagedBean implements Serializable {
 
         	
           //  proyectojurado.setDocenteId(getDocenteId());
-            proyecto.setEstado('A');
+            proyecto.setEstado(getEstado().charAt(0));
             proyecto.setCiudad(getCiudad());
             proyecto.setDepto(getDepartamento());
             proyecto.setNombre(getNombre());
@@ -126,15 +127,13 @@ public class ProyectoManagedBean implements Serializable {
         return proyectoList;
     }
 
-    public List<String> getProyectosListNombre() {
+    public void getProyectosListNombre(ComponentSystemEvent e) {
     	pro = new ArrayList<String>();
         proyectoList = new ArrayList<Proyecto>();
         proyectoList.addAll(getProyectoService().getProyectos());
         for (int i = 0; i < proyectoList.size(); i++) {
         	pro.add(proyectoList.get(i).getNombre());
-			
 		}
-        return pro;
     }
     
     public void onCellEdit(CellEditEvent event) {
@@ -197,4 +196,11 @@ public class ProyectoManagedBean implements Serializable {
 	public Integer getId() {
 		return id;
 	}
+	public List<String> getPro() {
+		return pro;
+	}
+	public void setPro(List<String> pro) {
+		this.pro = pro;
+	}
+	
 }

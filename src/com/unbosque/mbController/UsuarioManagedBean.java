@@ -45,6 +45,7 @@ public class UsuarioManagedBean implements Serializable {
 
 
 
+	ArrayList<String> use= new ArrayList<String>();
 
 	List<Usuario> usuarioList;
 
@@ -61,6 +62,7 @@ public class UsuarioManagedBean implements Serializable {
 	private Date  fecha = new Date();
 	private Email mail;
 	private String proyecto;
+	private int block;
 	
 	public void addUsuario() {
 		try {
@@ -244,24 +246,41 @@ public class UsuarioManagedBean implements Serializable {
 	}
 
 	public void getLogin1() throws IOException {
+		use.add(getLogin());
 		CifrarClave ci = new CifrarClave();
 		 FacesContext context = FacesContext.getCurrentInstance();
-		 System.out.println(login);
-
+		 Usuario usuario = getUsuarioService().getUsuarioByLogin(getLogin());
+		 int j;
 		usuarioList = new ArrayList<Usuario>();
 		usuarioList.addAll(getUsuarioService().getUsuarios());
-		for (int j = 0; j < usuarioList.size(); j++) {
+		for (j = 0; j < usuarioList.size(); j++) {
 			if(usuarioList.get(j).getLogin().trim().equals(login.trim())&&(usuarioList.get(j).getPassword().equals(ci.cifradoClave(password)))){
 				System.out.println(usuarioList.get(j).getTipoUsuario());
-				if(usuarioList.get(j).getTipoUsuario().equals('A')){
+				if(usuarioList.get(j).getTipoUsuario().equals('A')&&usuarioList.get(j).getEstado()==('A')){
 					context.getExternalContext().redirect("admin/HomeAdmin.xhtml");	
+					block=0;
 				}
-				if(usuarioList.get(j).getTipoUsuario().equals('U')){
+				if(usuarioList.get(j).getTipoUsuario().equals('U')&&usuarioList.get(j).getEstado()==('A')){
 					 context.getExternalContext().redirect("Odontologo/HomeOdontologo.xhtml");	
-				}
+					 block=0;
+				} 
 			}
 		}
+		block++;
 	    FacesContext.getCurrentInstance().addMessage("login error: ", new FacesMessage("Usuario O Contrasena Invalidos"));
+	  	    if(use.size()!=0){
+		   
+	   System.out.println("entro1");
+	   System.out.println(use.get(use.size()-1));
+	   System.out.println(usuario.getLogin());
+	    if (block>=3&&usuario.getTipoUsuario().equals('U')&&usuario.getLogin().trim().equals(use.get(use.size()-2))) {
+	    	deleteUsuario(usuario);
+	    	block=0;
+	    	FacesContext.getCurrentInstance().addMessage("login error: ", new FacesMessage("Exedio el numero de intentos"));
+		   
+			
+		}
+	   }
 	}
 
 

@@ -42,6 +42,9 @@ public class UsuarioService {
     public UsuarioDAO getUsuarioDAO() {
         return usuarioDAO;
     }
+    public Usuario getUsuarioByLogin(String login) {
+		return getUsuarioDAO().getUsuarioByLogin(login);
+	}
 
     public void setUsuarioDAO(UsuarioDAO usuarioDAO) {
         this.usuarioDAO = usuarioDAO;

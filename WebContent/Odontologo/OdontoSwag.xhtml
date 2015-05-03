@@ -16,7 +16,7 @@
 			<h1>Bienvenido</h1>
 
 		</div>
-
+<h:form>
 <div class="DientesSuperiores">
 	<div class="diente" onclick="PF('dlg').show();" title="login">
 		<!--diente 1-->
@@ -524,8 +524,107 @@
 	
 	
 	</div>
-	
+	<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+ 
+    <p:dialog  header="Datos" widgetVar="dlg" resizable="false">
+    <h:panelGrid id="loginPanel" columns="2">
+	  <h:outputText value="Arriba" />
+				<h:selectOneMenu id="txt1" value="#{PruebaDienteMBController.d11}"
+					required="true" requiredMessage="Seleccione Tipo usuario">
+					<f:selectItem itemLabel="Sano" itemValue="0" />
+					<f:selectItem itemLabel="Primer cambio visual en esmalte"
+						itemValue="1" />
+					<f:selectItem itemLabel="cambio visual detectable en esmalte"
+						itemValue="2" />
+					<f:selectItem itemLabel="Perdida de integridad superficial"
+						itemValue="3" />
+					<f:selectItem itemLabel="Sombra subyacente de dentina"
+						itemValue="4" />
+					<f:selectItem itemLabel="Cavidad detectable con dentina expuesta"
+						itemValue="5" />
+					<f:selectItem itemLabel="Cavidad extensa con dentina visible"
+						itemValue="6" />
+				</h:selectOneMenu>
+					
+		  <h:outputText value="Abajo" />
+					
+				<h:selectOneMenu id="txt2" value="#{PruebaDienteMBController.d12}"
+					required="true" requiredMessage="Seleccione Tipo usuario">
+					<f:selectItem itemLabel="Sano" itemValue="0" />
+					<f:selectItem itemLabel="Primer cambio visual en esmalte"
+						itemValue="1" />
+					<f:selectItem itemLabel="cambio visual detectable en esmalte"
+						itemValue="2" />
+					<f:selectItem itemLabel="Perdida de integridad superficial"
+						itemValue="3" />
+					<f:selectItem itemLabel="Sombra subyacente de dentina"
+						itemValue="4" />
+					<f:selectItem itemLabel="Cavidad detectable con dentina expuesta"
+						itemValue="5" />
+					<f:selectItem itemLabel="Cavidad extensa con dentina visible"
+						itemValue="6" />
+				</h:selectOneMenu>
+					
+	  <h:outputText value="Centro" />
+					
+				<h:selectOneMenu id="txt3" value="#{PruebaDienteMBController.d13}"
+					required="true" requiredMessage="Seleccione Tipo usuario">
+					<f:selectItem itemLabel="Sano" itemValue="0" />
+					<f:selectItem itemLabel="Primer cambio visual en esmalte"
+						itemValue="1" />
+					<f:selectItem itemLabel="cambio visual detectable en esmalte"
+						itemValue="2" />
+					<f:selectItem itemLabel="Perdida de integridad superficial"
+						itemValue="3" />
+					<f:selectItem itemLabel="Sombra subyacente de dentina"
+						itemValue="4" />
+					<f:selectItem itemLabel="Cavidad detectable con dentina expuesta"
+						itemValue="5" />
+					<f:selectItem itemLabel="Cavidad extensa con dentina visible"
+						itemValue="6" />
+				</h:selectOneMenu>
+					
+		  <h:outputText value="Izquierda" />
+					
+				<h:selectOneMenu id="txt4" value="#{PruebaDienteMBController.d14}"
+					required="true" requiredMessage="Seleccione Tipo usuario">
+					<f:selectItem itemLabel="Sano" itemValue="0" />
+					<f:selectItem itemLabel="Primer cambio visual en esmalte"
+						itemValue="1" />
+					<f:selectItem itemLabel="cambio visual detectable en esmalte"
+						itemValue="2" />
+					<f:selectItem itemLabel="Perdida de integridad superficial"
+						itemValue="3" />
+					<f:selectItem itemLabel="Sombra subyacente de dentina"
+						itemValue="4" />
+					<f:selectItem itemLabel="Cavidad detectable con dentina expuesta"
+						itemValue="5" />
+					<f:selectItem itemLabel="Cavidad extensa con dentina visible"
+						itemValue="6" />
+				</h:selectOneMenu>
+					
+					
+		  <h:outputText value="Derecha" />
+				<h:selectOneMenu id="txt5" value="#{PruebaDienteMBController.d15}"
+					required="true" requiredMessage="Seleccione Tipo usuario">
+					<f:selectItem itemLabel="Sano" itemValue="0" />
+					<f:selectItem itemLabel="Primer cambio visual en esmalte"
+						itemValue="1" />
+					<f:selectItem itemLabel="cambio visual detectable en esmalte"
+						itemValue="2" />
+					<f:selectItem itemLabel="Perdida de integridad superficial"
+						itemValue="3" />
+					<f:selectItem itemLabel="Sombra subyacente de dentina"
+						itemValue="4" />
+					<f:selectItem itemLabel="Cavidad detectable con dentina expuesta"
+						itemValue="5" />
+					<f:selectItem itemLabel="Cavidad extensa con dentina visible"
+						itemValue="6" />
+				</h:selectOneMenu>
+				
+			</h:panelGrid>
+</p:dialog>
 
-
+</h:form>
 </body>
 </html>

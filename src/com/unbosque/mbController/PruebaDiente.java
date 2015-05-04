@@ -17,8 +17,11 @@ import org.springframework.dao.DataAccessException;
 
 import com.unbosque.entidad.Departamento;
 import com.unbosque.entidad.Ciudad;
+import com.unbosque.entidad.Donto;
 import com.unbosque.entidad.Proyecto;
 import com.unbosque.entidad.Usuario;
+import com.unbosque.service.DepartamentoService;
+import com.unbosque.service.DontoService;
 import com.unbosque.service.ProyectoService;
 
 @ManagedBean(name = "PruebaDienteMBController")
@@ -28,6 +31,8 @@ public class PruebaDiente implements Serializable {
     private static final long serialVersionUID = -7809396168460749463L;
 
     // Spring Customer Service is injected...
+    @ManagedProperty(value = "#{DontoService}")
+    DontoService dontoService;
     
 
     public static long getSerialversionuid() {
@@ -107,39 +112,49 @@ public class PruebaDiente implements Serializable {
     private String c23; private String c26;
     
     public void save(){
-    	ArrayList<Integer> b = new ArrayList<Integer>();
-    	
-    	b.add(d11);
-    	b.add(d12);
-    	b.add(d13);
-    	b.add(d14);
-    	b.add(d15);
-System.out.println(c1);
-System.out.println(c2);
-System.out.println(c3);
-System.out.println(c4);
-System.out.println(c5);
-System.out.println(c6);
-System.out.println(c7);
-System.out.println(c8);
-System.out.println(c9);
-System.out.println(c10);
-System.out.println(c11);
-System.out.println(c12);
-System.out.println(c13);
-System.out.println(c14);
-System.out.println(c15);
-System.out.println(c16);
-System.out.println(c17);
-System.out.println(c18);
-System.out.println(c19);
-System.out.println(c20);
-System.out.println(c21);
+    
+    Donto don = new Donto();
+    
+    don.setCd11(getD11()); don.setCd12(getD12()); don.setCd13(getD13()); don.setCd14(getD14()); don.setCd15(getD15()); 
+    don.setCd21(getD21()); don.setCd22(getD22()); don.setCd23(getD23()); don.setCd24(getD24()); don.setCd25(getD25());
+    don.setCd31(getD31()); don.setCd32(getD32()); don.setCd33(getD33()); don.setCd34(getD34()); don.setCd35(getD35());
+    don.setCd41(getD41()); don.setCd42(getD42()); don.setCd43(getD43()); don.setCd44(getD44()); don.setCd45(getD45());
+    don.setCd51(getD51()); don.setCd52(getD52()); don.setCd53(getD53()); don.setCd54(getD54()); don.setCd55(getD55());
+    don.setCd61(getD61()); don.setCd62(getD62()); don.setCd63(getD63()); don.setCd64(getD64()); don.setCd65(getD65());
+    don.setCd71(getD71()); don.setCd72(getD72()); don.setCd73(getD73()); don.setCd74(getD74()); don.setCd75(getD75());
+    don.setCd81(getD81()); don.setCd82(getD82()); don.setCd83(getD83()); don.setCd84(getD84()); don.setCd85(getD85());
+    don.setCd91(getD91()); don.setCd92(getD92()); don.setCd93(getD93()); don.setCd94(getD94()); don.setCd95(getD95());
+    
+    don.setCd101(getD101()); don.setCd102(getD102()); don.setCd103(getD103()); don.setCd104(getD104()); don.setCd105(getD105());
+    don.setCd111(getD111()); don.setCd112(getD112()); don.setCd113(getD113()); don.setCd114(getD114()); don.setCd105(getD115());
+    don.setCd121(getD121()); don.setCd122(getD122()); don.setCd123(getD123()); don.setCd124(getD124()); don.setCd105(getD125());
+    don.setCd131(getD131()); don.setCd132(getD132()); don.setCd133(getD133()); don.setCd134(getD134()); don.setCd105(getD135());
+    don.setCd141(getD141()); don.setCd142(getD142()); don.setCd143(getD143()); don.setCd144(getD144()); don.setCd105(getD145());
+    don.setCd151(getD151()); don.setCd152(getD152()); don.setCd153(getD153()); don.setCd154(getD154()); don.setCd105(getD155());
+    don.setCd161(getD161()); don.setCd162(getD162()); don.setCd163(getD163()); don.setCd164(getD164()); don.setCd105(getD165());
+    don.setCd171(getD171()); don.setCd172(getD172()); don.setCd173(getD173()); don.setCd174(getD174()); don.setCd105(getD175());
+    don.setCd181(getD181()); don.setCd182(getD182()); don.setCd183(getD183()); don.setCd184(getD184()); don.setCd105(getD185());
+    don.setCd191(getD191()); don.setCd192(getD192()); don.setCd193(getD193()); don.setCd194(getD194()); don.setCd105(getD195());
+    
+    don.setCd201(getD201()); don.setCd202(getD202()); don.setCd203(getD203()); don.setCd204(getD204()); don.setCd205(getD205());
+    don.setCd211(getD211()); don.setCd212(getD212()); don.setCd213(getD213()); don.setCd214(getD214()); don.setCd215(getD215());
+    don.setCd221(getD221()); don.setCd222(getD222()); don.setCd223(getD223()); don.setCd224(getD224()); don.setCd225(getD225());
+    don.setCd231(getD231()); don.setCd232(getD232()); don.setCd233(getD233()); don.setCd234(getD234()); don.setCd235(getD235());
+    don.setCd241(getD241()); don.setCd242(getD242()); don.setCd243(getD243()); don.setCd244(getD244()); don.setCd245(getD245());
+    don.setCd251(getD251()); don.setCd252(getD252()); don.setCd253(getD253()); don.setCd254(getD254()); don.setCd255(getD255());
+    don.setCd261(getD261()); don.setCd262(getD262()); don.setCd263(getD263()); don.setCd264(getD264()); don.setCd265(getD265());
+    don.setCd271(getD271()); don.setCd272(getD272()); don.setCd273(getD273()); don.setCd274(getD274()); don.setCd275(getD275());
+    don.setCd281(getD281()); don.setCd282(getD282()); don.setCd283(getD283()); don.setCd284(getD284()); don.setCd285(getD285());
+    don.setCd291(getD291()); don.setCd292(getD292()); don.setCd293(getD293()); don.setCd294(getD294()); don.setCd295(getD295());
 
-System.out.println(c32);
-    	
+    don.setCd301(getD301()); don.setCd302(getD302()); don.setCd303(getD303()); don.setCd304(getD304()); don.setCd305(getD305());
+    don.setCd311(getD311()); don.setCd312(getD312()); don.setCd313(getD313()); don.setCd314(getD314()); don.setCd315(getD315());
+    don.setCd321(getD321()); don.setCd322(getD322()); don.setCd323(getD323()); don.setCd324(getD324()); don.setCd325(getD325());    
+    
+    getDontoService().addDonto(don);
+    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Guardado exitosamente!"));
 
-    	
+    
     }
 
 
@@ -3598,6 +3613,25 @@ System.out.println(c32);
 	public void setC26(String c26) {
 		this.c26 = c26;
 	}
- 
+
+
+
+
+
+
+	public DontoService getDontoService() {
+		return dontoService;
+	}
+
+
+
+
+
+
+	public void setDontoService(DontoService dontoService) {
+		this.dontoService = dontoService;
+	}
+
+
     
     }

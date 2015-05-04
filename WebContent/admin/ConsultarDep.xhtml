@@ -86,8 +86,8 @@
 
  <p:column headerText="Estado">
            <p:cellEditor>
-               <f:facet name="output"><h:outputText value="#{_departamento.estado}" /></f:facet>
-               <f:facet name="input"><p:inputText value="#{departamentoMBController.estado}" style="width:100%" label="Estado" required="true">
+               <f:facet name="output"><h:outputText value="#{_departamento.estado}" ajax="true"/></f:facet>
+               <f:facet name="input"><p:inputText ajax="true" value="#{departamentoMBController.estado}" style="width:100%" label="Estado" required="true">
                 <f:validateRegex pattern="(A|I)" />
        			<f:validateLength minimum="1" maximum="1" />
                

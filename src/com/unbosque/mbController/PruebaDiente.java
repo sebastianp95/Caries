@@ -127,7 +127,6 @@ public class PruebaDiente implements Serializable {
     public void init() {
     	dontoList = new ArrayList<Donto>();
     	dontoList.addAll(getDontoService().getDontos());
-        
     }
     
     public void save(){
@@ -139,6 +138,15 @@ public class PruebaDiente implements Serializable {
     		
     
     Donto don = new Donto();
+    
+    don.setD1coment(getC1()); don.setD2coment(getC2()); don.setD3coment(getC3()); don.setD4coment(getC4()); 
+    don.setD5coment(getC5()); don.setD6coment(getC6()); don.setD7coment(getC7()); don.setD8coment(getC8());
+    don.setD9coment(getC9()); don.setD10coment(getC10()); don.setD11coment(getC11()); don.setD12coment(getC12()); 
+    don.setD13coment(getC13()); don.setD14coment(getC14()); don.setD15coment(getC15()); don.setD16coment(getC16()); 
+    don.setD17coment(getC17()); don.setD18coment(getC18()); don.setD19coment(getC19()); don.setD20coment(getC20()); 
+    don.setD21coment(getC21()); don.setD22coment(getC22()); don.setD23coment(getC23()); don.setD24coment(getC24()); 
+    don.setD25coment(getC25()); don.setD26coment(getC26()); don.setD27coment(getC27()); don.setD28coment(getC28());
+    don.setD29coment(getC29()); don.setD30coment(getC30()); don.setD31coment(getC31()); don.setD32coment(getC32());
     
     don.setT4(getT4()); don.setT5(getT5()); don.setT6(getT6()); don.setT7(getT7()); don.setT8(getT8()); 
     don.setT10(getT10()); don.setT9(getT9()); don.setT11(getT11()); don.setT12(getT12()); don.setT13(getT13());
@@ -188,7 +196,7 @@ public class PruebaDiente implements Serializable {
     }
 
 
-    public void modifica1(RowEditEvent event){
+    public void modifica1(){
     	
     	System.out.println("asdas");
 //        don.setCd11(getD11()); don.setCd12(getD12()); don.setCd13(getD13()); don.setCd14(getD14()); don.setCd15(getD15()); 

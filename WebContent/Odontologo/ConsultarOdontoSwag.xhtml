@@ -331,104 +331,25 @@
 	
  
     <p:dialog  header="Datos" widgetVar="dlg" resizable="true" showEffect="puff"  modal="true" width="570" height="400"  hideEffect="explode"  position="200,200">
-    <h:panelGrid id="loginPanel" columns="2">
-	  <h:outputText value="Arriba" />
-				<h:selectOneMenu id="txt1" value="#{PruebaDienteMBController.d11}"
-					required="true" requiredMessage="Seleccione Tipo usuario">
-					<f:selectItem itemLabel="Sano" itemValue="0" />
-					<f:selectItem itemLabel="Primer cambio visual en esmalte"
-						itemValue="1" />
-					<f:selectItem itemLabel="cambio visual detectable en esmalte"
-						itemValue="2" />
-					<f:selectItem itemLabel="Perdida de integridad superficial"
-						itemValue="3" />
-					<f:selectItem itemLabel="Sombra subyacente de dentina"
-						itemValue="4" />
-					<f:selectItem itemLabel="Cavidad detectable con dentina expuesta"
-						itemValue="5" />
-					<f:selectItem itemLabel="Cavidad extensa con dentina visible"
-						itemValue="6" />
-				</h:selectOneMenu>
-					
-		  <h:outputText value="Abajo" />
-					
-				<h:selectOneMenu id="txt2" value="#{PruebaDienteMBController.d12}"
-					required="true" requiredMessage="Seleccione Tipo usuario">
-					<f:selectItem itemLabel="Sano" itemValue="0" />
-					<f:selectItem itemLabel="Primer cambio visual en esmalte"
-						itemValue="1" />
-					<f:selectItem itemLabel="cambio visual detectable en esmalte"
-						itemValue="2" />
-					<f:selectItem itemLabel="Perdida de integridad superficial"
-						itemValue="3" />
-					<f:selectItem itemLabel="Sombra subyacente de dentina"
-						itemValue="4" />
-					<f:selectItem itemLabel="Cavidad detectable con dentina expuesta"
-						itemValue="5" />
-					<f:selectItem itemLabel="Cavidad extensa con dentina visible"
-						itemValue="6" />
-				</h:selectOneMenu>
-					
-	  <h:outputText value="Centro" />
-					
-				<h:selectOneMenu id="txt3" value="#{PruebaDienteMBController.d13}"
-					required="true" requiredMessage="Seleccione Tipo usuario">
-					<f:selectItem itemLabel="Sano" itemValue="0" />
-					<f:selectItem itemLabel="Primer cambio visual en esmalte"
-						itemValue="1" />
-					<f:selectItem itemLabel="cambio visual detectable en esmalte"
-						itemValue="2" />
-					<f:selectItem itemLabel="Perdida de integridad superficial"
-						itemValue="3" />
-					<f:selectItem itemLabel="Sombra subyacente de dentina"
-						itemValue="4" />
-					<f:selectItem itemLabel="Cavidad detectable con dentina expuesta"
-						itemValue="5" />
-					<f:selectItem itemLabel="Cavidad extensa con dentina visible"
-						itemValue="6" />
-				</h:selectOneMenu>
-					
-		  <h:outputText value="Izquierda" />
-					
-				<h:selectOneMenu id="txt4" value="#{PruebaDienteMBController.d14}"
-					required="true" requiredMessage="Seleccione Tipo usuario">
-					<f:selectItem itemLabel="Sano" itemValue="0" />
-					<f:selectItem itemLabel="Primer cambio visual en esmalte"
-						itemValue="1" />
-					<f:selectItem itemLabel="cambio visual detectable en esmalte"
-						itemValue="2" />
-					<f:selectItem itemLabel="Perdida de integridad superficial"
-						itemValue="3" />
-					<f:selectItem itemLabel="Sombra subyacente de dentina"
-						itemValue="4" />
-					<f:selectItem itemLabel="Cavidad detectable con dentina expuesta"
-						itemValue="5" />
-					<f:selectItem itemLabel="Cavidad extensa con dentina visible"
-						itemValue="6" />
-				</h:selectOneMenu>
-					
-					
-		  <h:outputText value="Derecha" />
-				<h:selectOneMenu id="txt5" value="#{PruebaDienteMBController.d15}"
-					required="true" requiredMessage="Seleccione Tipo usuario">
-					<f:selectItem itemLabel="Sano" itemValue="0" />
-					<f:selectItem itemLabel="Primer cambio visual en esmalte"
-						itemValue="1" />
-					<f:selectItem itemLabel="cambio visual detectable en esmalte"
-						itemValue="2" />
-					<f:selectItem itemLabel="Perdida de integridad superficial"
-						itemValue="3" />
-					<f:selectItem itemLabel="Sombra subyacente de dentina"
-						itemValue="4" />
-					<f:selectItem itemLabel="Cavidad detectable con dentina expuesta"
-						itemValue="5" />
-					<f:selectItem itemLabel="Cavidad extensa con dentina visible"
-						itemValue="6" />
-				</h:selectOneMenu>
-				
-			</h:panelGrid>
-<p:inputTextarea rows="10" cols="50"  value="#{PruebaDienteMBController.c1}" />
-	
+    <p:dataTable id="cars1" var="_departamento" value="#{departamentoMBController.departamentosList}" editable="true" editMode="cell" style="margin-bottom:20px; height: 350px;"
+    emptyMessage="No hay registros disponibles">
+      
+ 
+	   <p:ajax event="cellEdit" listener="#{departamentoMBController.modificarDepartamento(_departamento)}" /> 
+       <p:column headerText="Nombres" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.nombre}" /></f:facet>
+               <f:facet name="input"><p:inputText id="modelInput" value="#{departamentoMBController.nombre}" style="width:100%" required="true" requiredMessage="Por favor ingrese un nombre" validatorMessage="ingrese solo letras y de 4 a 16 caracteres" >
+               <f:validateRegex pattern="^[a-zA-Z]+$"  />
+       			<f:validateLength minimum="4" maximum="16" />
+            </p:inputText>
+               
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
+ 
+   </p:dataTable>
+ 
 </p:dialog>
 
 <p:dialog  header="Datos" widgetVar="dlg2" resizable="true" showEffect="puff"  modal="true" width="570" height="400"  hideEffect="explode" position="200,200" >

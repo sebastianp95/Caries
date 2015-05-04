@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -13,6 +14,7 @@ import javax.faces.context.FacesContext;
 
 import org.primefaces.context.RequestContext;
 import org.primefaces.event.CellEditEvent;
+import org.primefaces.event.RowEditEvent;
 import org.springframework.dao.DataAccessException;
 
 import com.unbosque.entidad.Departamento;
@@ -38,6 +40,13 @@ public class PruebaDiente implements Serializable {
     public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+    
+    
+    
+    private char t4; private char t5; private char t6; private char t7; private char t8; private char t9;
+    private char t10; private char t11; private char t12; private char t13; private char t20; private char t21;
+    private char t22; private char t23; private char t24; private char t25; private char t26; private char t27;
+    private char t28; private char t29;
 	
     private Integer d11; private Integer d12; private Integer d13; private Integer d14; private Integer d15;
     
@@ -111,9 +120,30 @@ public class PruebaDiente implements Serializable {
     private String c22; private String c25; private String c28; private String c30; private String c32;
     private String c23; private String c26;
     
+	List<Donto> dontoList;
+	
+	private String identificacion;
+    @PostConstruct
+    public void init() {
+    	dontoList = new ArrayList<Donto>();
+    	dontoList.addAll(getDontoService().getDontos());
+        
+    }
+    
     public void save(){
+    	if(getT4()=='S'||getT5()=='S'||getT6()=='S'||getT7()=='S'||getT8()=='S'||getT9()=='S'||getT10()=='S'||getT11()=='S'||getT12()=='S'||getT13()=='S'||getT20()=='S'||getT21()=='S'||getT22()=='S'||getT23()=='S'||getT24()=='S'||getT25()=='S'||getT26()=='S'||getT27()=='S'||getT28()=='S'||getT29()=='S'){
+    		RequestContext context = RequestContext.getCurrentInstance();
+    		context.execute("PF('myDialogVar').show();");
+
+    	}else{
+    		
     
     Donto don = new Donto();
+    
+    don.setT4(getT4()); don.setT5(getT5()); don.setT6(getT6()); don.setT7(getT7()); don.setT8(getT8()); 
+    don.setT10(getT10()); don.setT9(getT9()); don.setT11(getT11()); don.setT12(getT12()); don.setT13(getT13());
+    don.setT20(getT20()); don.setT21(getT21()); don.setT22(getT22()); don.setT23(getT23()); don.setT24(getT24());
+    don.setT25(getT25()); don.setT26(getT26()); don.setT27(getT27()); don.setT28(getT28()); don.setT29(getT29());
     
     don.setCd11(getD11()); don.setCd12(getD12()); don.setCd13(getD13()); don.setCd14(getD14()); don.setCd15(getD15()); 
     don.setCd21(getD21()); don.setCd22(getD22()); don.setCd23(getD23()); don.setCd24(getD24()); don.setCd25(getD25());
@@ -154,11 +184,16 @@ public class PruebaDiente implements Serializable {
     getDontoService().addDonto(don);
     FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Guardado exitosamente!"));
 
-    
+    }
     }
 
 
-
+    public void modifica1(RowEditEvent event){
+    	
+    	System.out.println("asdas");
+//        don.setCd11(getD11()); don.setCd12(getD12()); don.setCd13(getD13()); don.setCd14(getD14()); don.setCd15(getD15()); 
+//        getDontoService().updateDonto(don);
+    }
 
 
 
@@ -3630,6 +3665,382 @@ public class PruebaDiente implements Serializable {
 
 	public void setDontoService(DontoService dontoService) {
 		this.dontoService = dontoService;
+	}
+
+
+
+
+
+
+	public char getT4() {
+		return t4;
+	}
+
+
+
+
+
+
+	public void setT4(char t4) {
+		this.t4 = t4;
+	}
+
+
+
+
+
+
+	public char getT5() {
+		return t5;
+	}
+
+
+
+
+
+
+	public void setT5(char t5) {
+		this.t5 = t5;
+	}
+
+
+
+
+
+
+	public char getT6() {
+		return t6;
+	}
+
+
+
+
+
+
+	public void setT6(char t6) {
+		this.t6 = t6;
+	}
+
+
+
+
+
+
+	public char getT7() {
+		return t7;
+	}
+
+
+
+
+
+
+	public void setT7(char t7) {
+		this.t7 = t7;
+	}
+
+
+
+
+
+
+	public char getT8() {
+		return t8;
+	}
+
+
+
+
+
+
+	public void setT8(char t8) {
+		this.t8 = t8;
+	}
+
+
+
+
+
+
+	public char getT9() {
+		return t9;
+	}
+
+
+
+
+
+
+	public void setT9(char t9) {
+		this.t9 = t9;
+	}
+
+
+
+
+
+
+	public char getT10() {
+		return t10;
+	}
+
+
+
+
+
+
+	public void setT10(char t10) {
+		this.t10 = t10;
+	}
+
+
+
+
+
+
+	public char getT11() {
+		return t11;
+	}
+
+
+
+
+
+
+	public void setT11(char t11) {
+		this.t11 = t11;
+	}
+
+
+
+
+
+
+	public char getT12() {
+		return t12;
+	}
+
+
+
+
+
+
+	public void setT12(char t12) {
+		this.t12 = t12;
+	}
+
+
+
+
+
+
+	public char getT13() {
+		return t13;
+	}
+
+
+
+
+
+
+	public void setT13(char t13) {
+		this.t13 = t13;
+	}
+
+
+
+
+
+
+	public char getT20() {
+		return t20;
+	}
+
+
+
+
+
+
+	public void setT20(char t20) {
+		this.t20 = t20;
+	}
+
+
+
+
+
+
+	public char getT21() {
+		return t21;
+	}
+
+
+
+
+
+
+	public void setT21(char t21) {
+		this.t21 = t21;
+	}
+
+
+
+
+
+
+	public char getT22() {
+		return t22;
+	}
+
+
+
+
+
+
+	public void setT22(char t22) {
+		this.t22 = t22;
+	}
+
+
+
+
+
+
+	public char getT23() {
+		return t23;
+	}
+
+
+
+
+
+
+	public void setT23(char t23) {
+		this.t23 = t23;
+	}
+
+
+
+
+
+
+	public char getT24() {
+		return t24;
+	}
+
+
+
+
+
+
+	public void setT24(char t24) {
+		this.t24 = t24;
+	}
+
+
+
+
+
+
+	public char getT25() {
+		return t25;
+	}
+
+
+
+
+
+
+	public void setT25(char t25) {
+		this.t25 = t25;
+	}
+
+
+
+
+
+
+	public char getT26() {
+		return t26;
+	}
+
+
+
+
+
+
+	public void setT26(char t26) {
+		this.t26 = t26;
+	}
+
+
+
+
+
+
+	public char getT27() {
+		return t27;
+	}
+
+
+
+
+
+
+	public void setT27(char t27) {
+		this.t27 = t27;
+	}
+
+
+
+
+
+
+	public char getT28() {
+		return t28;
+	}
+
+
+
+
+
+
+	public void setT28(char t28) {
+		this.t28 = t28;
+	}
+
+
+
+
+
+
+	public char getT29() {
+		return t29;
+	}
+
+
+
+
+
+
+	public void setT29(char t29) {
+		this.t29 = t29;
+	}
+
+	public List<Donto> getDontoList() {
+		return dontoList;
+	}
+
+	public void setDontoList(List<Donto> dontoList) {
+		this.dontoList = dontoList;
+	}
+
+	public String getIdentificacion() {
+		return identificacion;
+	}
+
+	public void setIdentificacion(String identificacion) {
+		this.identificacion = identificacion;
 	}
 
 

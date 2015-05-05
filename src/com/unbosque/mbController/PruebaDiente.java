@@ -12,9 +12,13 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
+import org.primefaces.model.chart.Axis;
 import org.primefaces.context.RequestContext;
 import org.primefaces.event.CellEditEvent;
 import org.primefaces.event.RowEditEvent;
+import org.primefaces.model.chart.AxisType;
+import org.primefaces.model.chart.BarChartModel;
+import org.primefaces.model.chart.ChartSeries;
 import org.springframework.dao.DataAccessException;
 
 import com.unbosque.entidad.Departamento;
@@ -121,12 +125,15 @@ public class PruebaDiente implements Serializable {
     private String c23; private String c26;
     
 	List<Donto> dontoList;
-	
+	private BarChartModel animatedModel2;
 	private String identificacion;
     @PostConstruct
     public void init() {
+  	 
+
     	dontoList = new ArrayList<Donto>();
     	dontoList.addAll(getDontoService().getDontos());
+    	 createAnimatedModels();
     }
     
     public void save(){
@@ -195,7 +202,67 @@ public class PruebaDiente implements Serializable {
     }
     }
 
+    private void createAnimatedModels() {
+    
+         
+        animatedModel2 = initBarModel();
+        animatedModel2.setTitle("Bar Charts");
+        animatedModel2.setAnimate(true);
+        animatedModel2.setLegendPosition("ne");
+        Axis yAxis = animatedModel2.getAxis(AxisType.Y);
+        yAxis.setMin(0);
+        yAxis.setMax(10);
+    }
+    private BarChartModel initBarModel() {
+    	int cero=0;
+    	int uno=0;
+    	int dos=0;
+    	int tres=0;
+    	int cuatro=0;
+    	int cinco=0;
+    	int seis=0;
+    	int siete=0;
+        BarChartModel model = new BarChartModel();
+        ChartSeries boys = new ChartSeries();
 
+        boys.setLabel("Cara de Arriba");
+
+ for (int i = 0; i < dontoList.size(); i++) {
+	if(dontoList.get(i).getCd11()==0)cero++;
+	if(dontoList.get(i).getCd11()==1)uno++;
+	if(dontoList.get(i).getCd11()==2)dos++;
+	if(dontoList.get(i).getCd11()==3)tres++;
+	if(dontoList.get(i).getCd11()==4)cuatro++;
+	if(dontoList.get(i).getCd11()==5)cinco++;
+	if(dontoList.get(i).getCd11()==6)seis++;
+	if(dontoList.get(i).getCd11()==7)siete++;
+}
+ System.out.println(uno);
+ System.out.println(dos);
+ System.out.println(tres);
+ System.out.println(cuatro);
+ System.out.println(cinco);
+ System.out.println(seis);
+ System.out.println(siete);
+        
+ boys.set("0",cero);
+ boys.set("1",uno);
+ boys.set("2",dos);
+ boys.set("3",tres);
+ boys.set("4",cuatro);
+ boys.set("5",cinco);
+ boys.set("6",seis);
+ boys.set("7",seis);
+
+       
+        model.addSeries(boys);
+         
+        return model;
+    }
+    
+    public BarChartModel getAnimatedModel2() {
+        return animatedModel2;
+    }
     public void modifica1(){
     	
     	System.out.println("asdas");

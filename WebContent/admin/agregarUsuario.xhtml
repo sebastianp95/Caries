@@ -63,9 +63,9 @@
     <h:panelGrid columns="2" cellpadding="5">
         
          <h:outputText value="ApellidosNombres: " />
-        <p:inputText id="ApellidosNombres" value="#{usuarioMBController.apellidosNombres}" required="true" requiredMessage="Por favor ingrese un nombre" validatorMessage="ingrese solo letras y de 4 a 16 caracteres" >
+        <p:inputText id="ApellidosNombres" value="#{usuarioMBController.apellidosNombres}" required="true" requiredMessage="Por favor ingrese un nombre" validatorMessage="ingrese solo letras y de 4 a 60 caracteres" >
        <f:validateRegex pattern="^[a-zA-Z]+$" />
-       <f:validateLength minimum="4" maximum="16" />
+       <f:validateLength minimum="4" maximum="60" />
             </p:inputText>
        
         <h:outputText value="correo: " />

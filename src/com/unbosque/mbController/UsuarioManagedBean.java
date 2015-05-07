@@ -309,11 +309,7 @@ public class UsuarioManagedBean implements Serializable {
 		 long actual =fecha.getTime();
 		                                      
 
-		if(actual<usuario.getFechaClave().getTime()){
-		    FacesContext.getCurrentInstance().addMessage("login error: ", new FacesMessage("Debe Cambiar su clave: "+ ""));
-			 context.getExternalContext().redirect("admin/cambioContra.xhtml");	
-
-		}else{
+		
 		
 		 int j;
 		usuarioList = new ArrayList<Usuario>();
@@ -322,13 +318,25 @@ public class UsuarioManagedBean implements Serializable {
 			if(usuarioList.get(j).getLogin().trim().equals(login.trim())&&(usuarioList.get(j).getPassword().equals(ci.cifradoClave(password)))){
 				System.out.println(usuarioList.get(j).getTipoUsuario());
 				if(usuarioList.get(j).getTipoUsuario().equals('A')&&usuarioList.get(j).getEstado()==('A')){
-					context.getExternalContext().redirect("admin/HomeAdmin.xhtml");	
-					block=0;
-					logger.info("Se ha registrado un nuevo Usuario");
+					if(actual<usuario.getFechaClave().getTime()){
+					    FacesContext.getCurrentInstance().addMessage("login error: ", new FacesMessage("Debe Cambiar su clave: "+ ""));
+						 context.getExternalContext().redirect("admin/cambioContra.xhtml");	}
+						 else{
+							 context.getExternalContext().redirect("admin/HomeAdmin.xhtml");	
+								block=0;
+								logger.info("Se ha registrado un nuevo Usuario");
+						 }
+					
 				}
 				if(usuarioList.get(j).getTipoUsuario().equals('U')&&usuarioList.get(j).getEstado()==('A')){
-					 context.getExternalContext().redirect("Odontologo/HomeOdontologo.xhtml");	
-					 block=0;
+					if(actual<usuario.getFechaClave().getTime()){
+					    FacesContext.getCurrentInstance().addMessage("login error: ", new FacesMessage("Debe Cambiar su clave: "+ ""));
+						 context.getExternalContext().redirect("admin/cambioContra.xhtml");	}
+					else{
+						context.getExternalContext().redirect("Odontologo/HomeOdontologo.xhtml");	
+						 block=0;
+					}
+					 
 				} 
 			}
 		}
@@ -336,16 +344,21 @@ public class UsuarioManagedBean implements Serializable {
 	    FacesContext.getCurrentInstance().addMessage("login error: ", new FacesMessage("Usuario O Contrasena Invalidos"));
 	  	    if(use.size()!=0){
 		   
-	   System.out.println(usuario.getLogin());
-	    if (block>=3&&usuario.getTipoUsuario().equals('U')&&usuario.getLogin().trim().equals(use.get(use.size()-2))) {
-	    	deleteUsuario(usuario);
-	    	block=0;
-	    	FacesContext.getCurrentInstance().addMessage("login error: ", new FacesMessage("Exedio el numero de intentos"));
-		   
-			
-		}
+	   //System.out.println(usuario.getLogin());
+	  	    	try {
+	  	    		 if (block>=3&&usuario.getTipoUsuario().equals('U')&&usuario.getLogin().trim().equals(use.get(use.size()-2))) {
+	  	   	    	deleteUsuario(usuario);
+	  	   	    	block=0;
+	  	   	    	FacesContext.getCurrentInstance().addMessage("login error: ", new FacesMessage("Exedio el numero de intentos"));
+	  	   		   
+	  	   			
+	  	   		}
+				} catch (Exception e) {
+				    FacesContext.getCurrentInstance().addMessage("login error: ", new FacesMessage("Usuario O Contrasena Invalidos"));
+				}
+	   
 	   }
-		}
+		
 	}
 
 

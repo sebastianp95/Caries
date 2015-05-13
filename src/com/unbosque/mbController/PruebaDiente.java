@@ -137,11 +137,11 @@ public class PruebaDiente implements Serializable {
     }
     
     public void save(){
-    	if(getT4()=='S'||getT5()=='S'||getT6()=='S'||getT7()=='S'||getT8()=='S'||getT9()=='S'||getT10()=='S'||getT11()=='S'||getT12()=='S'||getT13()=='S'||getT20()=='S'||getT21()=='S'||getT22()=='S'||getT23()=='S'||getT24()=='S'||getT25()=='S'||getT26()=='S'||getT27()=='S'||getT28()=='S'||getT29()=='S'){
-    		RequestContext context = RequestContext.getCurrentInstance();
-    		context.execute("PF('myDialogVar').show();");
-
-    	}else{
+//    	if(getT4()=='S'||getT5()=='S'||getT6()=='S'||getT7()=='S'||getT8()=='S'||getT9()=='S'||getT10()=='S'||getT11()=='S'||getT12()=='S'||getT13()=='S'||getT20()=='S'||getT21()=='S'||getT22()=='S'||getT23()=='S'||getT24()=='S'||getT25()=='S'||getT26()=='S'||getT27()=='S'||getT28()=='S'||getT29()=='S'){
+//    		RequestContext context = RequestContext.getCurrentInstance();
+//    		context.execute("PF('myDialogVar').show();");
+//
+//    	}else{
     		
     
     Donto don = new Donto();
@@ -200,7 +200,7 @@ public class PruebaDiente implements Serializable {
     FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Guardado exitosamente!"));
 
     }
-    }
+//    }
 
     private void createAnimatedModels() {
     

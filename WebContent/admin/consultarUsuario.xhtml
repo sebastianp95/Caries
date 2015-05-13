@@ -60,7 +60,7 @@
           <h:form id="form">
            
        
-            <p:panel  header="Consultar Usuario " style="width: 360px; maring: 0 auto;  position: absolute; width: 1200px; height: 420px;left: 200px;top: 140px; margin: 0 0 0 80px;">
+            <p:panel  header="Consultar Usuario " style="width: 360px; maring: 0 auto;  position: absolute; width: 1150px; height: 450px;left: 150px;top: 140px; margin: 0 0 0 80px;">
  <p:growl id="msgs" showDetail="true"/>
  
    <p:dataTable id="cars1" var="_usuario" resizableColumns="true"  value="#{usuarioMBController.usuariosList}" editable="true" style="margin-bottom:20px; width: 1100px; height: 350px;"
@@ -104,19 +104,8 @@
            
        </p:column>
        
-       
-        <p:column headerText="Contraseña">
-           <p:cellEditor>
-               <f:facet name="output"><h:outputText value="#{_usuario.password}" /></f:facet>
-               <f:facet name="input"><p:inputText value="#{usuarioMBController.password}" style="width:100%" label="Contraseña" required="true" >
-               <f:validateLength minimum="8" maximum="12" />
-               </p:inputText>
-                
-               </f:facet>
-           </p:cellEditor>
-       </p:column>
  
- <p:column headerText="Estado">
+ <p:column headerText="Estado" style="width:50px">
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_usuario.estado}" /></f:facet>
                <f:facet name="input"><p:inputText value="#{usuarioMBController.estado}" style="width:100%" label="Estado" required="true">
@@ -136,11 +125,6 @@
        </p:column>
    </p:dataTable>
     
- <h:commandLink>
-   			<h:graphicImage value="../image/pdf.png" />
-				<p:dataExporter type="pdf" target="cars1"
-					fileName="usuariosList" pageOnly="true" />
-			</h:commandLink>
 
 			<h:commandLink>
 				<h:graphicImage value="../image/xml.png" />

@@ -53,13 +53,18 @@
 </h1>
 
 </div>
-<div id = "sectionAdm" style="background-image: url(denti.jpg); height: 100%; width: 100%; background-size: cover;" >        
+<div id = "sectionAdm" style="background-image: url(denti.jpg); height: 100%; width: 100%; background-size: cover;" >   
+          <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>        
+    <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>        
+    <br></br><br></br><br></br>       
        
-       <h:form>
-       
-     <p:dataTable id="cars2" var="car" value="#{proyectoMBController.proyectosList}" editable="true"  style="width: 360px; maring: 0 auto;  position: absolute; width: 450px; height: 220px;left: 200px;top: 140px; margin: 0 0 0 80px;">
+       <h:form id="form">
+                   <p:panel  header="Consultar Proyecto " style="width: 360px; maring: 0 auto;  position: absolute; width: 470px;  left: 200px;top: 140px; margin: 0 0 0 80px;">
+ <p:growl id="msgs" showDetail="true"/>
+ 
+     <p:dataTable id="cars2" var="car" value="#{proyectoMBController.proyectosList}" editable="true"  >
        <f:facet name="header">
-Click para editar celda       </f:facet>
+     </f:facet>
  
         <p:ajax event="rowEdit" listener="#{proyectoMBController.modificarUsuario(car)}"/>
        
@@ -117,6 +122,13 @@ Click para editar celda       </f:facet>
 			</p:column>
  
    </p:dataTable>
+   
+   		<h:commandLink>
+				<h:graphicImage value="../image/xml.png" />
+				<p:dataExporter type="xls" target="cars2"
+					fileName="proyectosList" pageOnly="true" />
+			</h:commandLink>
+ </p:panel>
 </h:form>
 </div>
 <div id="footer">

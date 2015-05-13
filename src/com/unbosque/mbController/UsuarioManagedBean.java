@@ -191,7 +191,7 @@ public class UsuarioManagedBean implements Serializable {
     		 user.setPassword(cfr.cifradoClave(getNewPass()));
 	           
 	         if (verificarPass(getNewPass())) {
-	        	 long treinta = (30 * 24 * 60 * 60 * 1000) +fecha.getTime();
+	        	 long treinta = -(30 * 24 * 60 * 60 * 1000) +fecha.getTime();
 	        	 user.setFechaClave(new Timestamp(treinta));
 	        	 getUsuarioService().updateUsuario(user);
 			    	FacesContext.getCurrentInstance().addMessage("login error: ", new FacesMessage("Exitoso"));
@@ -351,7 +351,7 @@ System.out.println(user);
 					
 				}
 				if(usuarioList.get(j).getTipoUsuario().equals('U')&&usuarioList.get(j).getEstado()==('A')){
-					if(actual<usuario.getFechaClave().getTime()){
+					if(actual>usuario.getFechaClave().getTime()){
 					    FacesContext.getCurrentInstance().addMessage("login error: ", new FacesMessage("Debe Cambiar su clave: "+ ""));
 						 context.getExternalContext().redirect("admin/cambioContra.xhtml");	}
 					else{

@@ -84,13 +84,17 @@ public class UsuarioManagedBean implements Serializable {
 			CifrarClave ci = new CifrarClave();
 			usuario.setApellidosNombres(getApellidosNombres());
 			
-			long treinta = (30 * 24 * 60 * 60 * 1000) +fecha.getTime();
+			long treinta = (30 * 24 * 60 * 60 * 1000) +System.currentTimeMillis();
 			
-			
+			 SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//dd/MM/yyyy
+			    Date now = new Date();
+			    String strDate = sdfDate.format(now);
+			    System.out.println(strDate);
+			    
 			usuario.setCorreo(getCorreo());
 			usuario.setEstado('A');  
      		usuario.setFechaClave(new Timestamp(treinta)); 
-     		usuario.setFechaCreacion(new Timestamp(fecha.getTime())); 
+     		usuario.setFechaCreacion(new Timestamp(System.currentTimeMillis())); 
 			usuario.setProyecto(getProyecto());
 			usuario.setLogin(getLogin());
 			usuario.setTipoUsuario(getTipoUsuario().charAt(0));
@@ -175,14 +179,8 @@ public class UsuarioManagedBean implements Serializable {
 	        	 getUsuarioService().updateUsuario(user);
 			    	FacesContext.getCurrentInstance().addMessage("login error: ", new FacesMessage("Exitoso"));
 			    	
-			    	if (user.getTipoUsuario().equals('A')) {
-			    		context.getExternalContext().redirect("HomeAdmin.xhtml");	
-					}
-			    	if (user.getTipoUsuario().equals('U')) {
-			    		context.getExternalContext().redirect("../Odontologo/HomeOdontologo.xhtml");	
-						
-					}
-			    	
+		    		context.getExternalContext().redirect("Login.xhtml");	
+
 			    	
 				
 			}
@@ -249,7 +247,6 @@ public class UsuarioManagedBean implements Serializable {
 	}
 	 }
 	if (a&&b&&c) {
-		context.addMessage(null, new FacesMessage("Contraseña",  "Valida: ") );
 		a=true;
 	}else{
 		context.addMessage(null, new FacesMessage("Contraseña",  "Invalida: ") );
@@ -263,19 +260,21 @@ public class UsuarioManagedBean implements Serializable {
 	        try {
 	        	RequestContext context = RequestContext.getCurrentInstance();
 	            FacesMessage msgs= null;
-	        	
+if(verificarPass(getPassword())){
+	usuario.setApellidosNombres(getApellidosNombres());
+	CifrarClave ci = new CifrarClave();
+	
+	usuario.setPassword(ci.cifradoClave(getPassword()));
+   
+  usuario.setEstado(getEstado().charAt(0));
+   
+    getUsuarioService().updateUsuario(usuario);
+    msgs = new FacesMessage(FacesMessage.SEVERITY_INFO, "Titulo",
+            "Registro agregado exitosamente.");
+	
+				}
 	          //  proyectojurado.setDocenteId(getDocenteId());
-	            usuario.setApellidosNombres(getApellidosNombres());
 	            
-	                 
-	           usuario.setPassword(getPassword());
-	           
-	          usuario.setEstado(getEstado().charAt(0));
-	           
-	            getUsuarioService().updateUsuario(usuario);
-	            msgs = new FacesMessage(FacesMessage.SEVERITY_INFO, "Titulo",
-	                    "Registro agregado exitosamente.");
-
 	        } catch (DataAccessException e) {
 	            e.printStackTrace();
 	        }
@@ -317,6 +316,7 @@ public class UsuarioManagedBean implements Serializable {
 		for (j = 0; j < usuarioList.size(); j++) {
 			if(usuarioList.get(j).getLogin().trim().equals(login.trim())&&(usuarioList.get(j).getPassword().equals(ci.cifradoClave(password)))){
 				System.out.println(usuarioList.get(j).getTipoUsuario());
+				
 				if(usuarioList.get(j).getTipoUsuario().equals('A')&&usuarioList.get(j).getEstado()==('A')){
 					if(actual<usuario.getFechaClave().getTime()){
 					    FacesContext.getCurrentInstance().addMessage("login error: ", new FacesMessage("Debe Cambiar su clave: "+ ""));
@@ -341,7 +341,7 @@ public class UsuarioManagedBean implements Serializable {
 			}
 		}
 		block++;
-	    FacesContext.getCurrentInstance().addMessage("login error: ", new FacesMessage("Usuario O Contrasena Invalidos"));
+	    FacesContext.getCurrentInstance().addMessage("login error: ", new FacesMessage("Usuario O Contrasena Invalidos O usuario Inactivo"));
 	  	    if(use.size()!=0){
 		   
 	   //System.out.println(usuario.getLogin());
@@ -350,7 +350,6 @@ public class UsuarioManagedBean implements Serializable {
 	  	   	    	deleteUsuario(usuario);
 	  	   	    	block=0;
 	  	   	    	FacesContext.getCurrentInstance().addMessage("login error: ", new FacesMessage("Exedio el numero de intentos"));
-	  	   		   
 	  	   			
 	  	   		}
 				} catch (Exception e) {

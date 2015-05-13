@@ -336,10 +336,12 @@
        <p:ajax event="rowEdit" listener="#{PruebaDienteMBController.modifica1}"  />
  
        <p:column headerText="Nombres" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
+           <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.identificacion}" /></f:facet>
                <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.identificacion}" style="width:100%" >
             </p:inputText>            
                </f:facet>
+           </p:cellEditor>
        </p:column>
        
        

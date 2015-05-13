@@ -34,7 +34,7 @@
  
                     <h:outputText value="Username" />
  
-                    <p:inputText id="username" value="#{usuarioMBController.login}" ></p:inputText>
+                    <p:inputText id="username" value="#{usuarioMBController.login}"  required="true" requiredMessage="Ingrese UserName"></p:inputText>
  
                     <p:spacer></p:spacer>
  
@@ -42,7 +42,7 @@
  
                     <h:outputText value="Password" />
  
-                    <p:password id="password" value="#{usuarioMBController.password}"  feedback="false"></p:password>
+                    <p:password id="password" value="#{usuarioMBController.password}"  feedback="false" required="true" requiredMessage="Ingrese Password"></p:password>
  
                     <p:spacer></p:spacer>
  

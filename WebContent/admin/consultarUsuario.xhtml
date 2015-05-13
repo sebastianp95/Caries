@@ -74,7 +74,7 @@
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_usuario.apellidosNombres}" /></f:facet>
                <f:facet name="input"><p:inputText id="modelInput" value="#{usuarioMBController.apellidosNombres}" style="width:100%" required="true" requiredMessage="Por favor ingrese un nombre" validatorMessage="ingrese solo letras y de 4 a 16 caracteres" >
-               <f:validateRegex pattern="^[a-zA-Z]+$"  />
+               <f:validateRegex pattern="^[A-Z a-z]*$"  />
        			<f:validateLength minimum="4" maximum="16" />
             </p:inputText>
          

@@ -325,8 +325,7 @@
 		<div class="centro click"></div>
 	</div>
 	
-	<p:commandButton value="Grabar" actionListener="#{PruebaDienteMBController.save()}" ajax="true" style="position: absolute; width: 100px; height: 50px;left: 200px;top: 140px; margin: 270px 0 0 240px;" >
- </p:commandButton>
+
 	</div>
 	
  
@@ -335,7 +334,7 @@
     emptyMessage="No hay registros disponibles">
        <p:ajax event="rowEdit" listener="#{PruebaDienteMBController.modifica1}"  />
  
-       <p:column headerText="Nombres" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
+       <p:column headerText="Identificacion" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.identificacion}" /></f:facet>
                <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.identificacion}" style="width:100%" >
@@ -344,6 +343,23 @@
            </p:cellEditor>
        </p:column>
        
+       <p:column headerText="fecha">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.fechaCreacion}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.fechaCreacion}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
+       
+       <p:column headerText="proyecto" filterBy="#{_departamento.proyecto}" filterMatchMode="startsWith">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.proyecto}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.proyecto}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
        
         <p:column headerText="Comentario" >
            <p:cellEditor>
@@ -406,7 +422,7 @@
     emptyMessage="No hay registros disponibles">
        <p:ajax event="rowEdit" listener="#{PruebaDienteMBController.modifica1}"  />
  
-       <p:column headerText="Nombres" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
+       <p:column headerText="Identificacion" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.identificacion}" /></f:facet>
                <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.identificacion}" style="width:100%" >
@@ -414,7 +430,23 @@
                </f:facet>
            </p:cellEditor>
        </p:column>
+       <p:column headerText="fecha">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.fechaCreacion}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.fechaCreacion}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
        
+       <p:column headerText="proyecto" filterBy="#{_departamento.proyecto}" filterMatchMode="startsWith">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.proyecto}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.proyecto}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
        
         <p:column headerText="Comentario" >
            <p:cellEditor>
@@ -478,7 +510,7 @@
     emptyMessage="No hay registros disponibles">
        <p:ajax event="rowEdit" listener="#{PruebaDienteMBController.modifica1}"  />
  
-       <p:column headerText="Nombres" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
+       <p:column headerText="Identificacion" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.identificacion}" /></f:facet>
                <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.identificacion}" style="width:100%" >
@@ -486,7 +518,23 @@
                </f:facet>
            </p:cellEditor>
        </p:column>
+       <p:column headerText="fecha">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.fechaCreacion}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.fechaCreacion}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
        
+       <p:column headerText="proyecto" filterBy="#{_departamento.proyecto}" filterMatchMode="startsWith">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.proyecto}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.proyecto}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
        
         <p:column headerText="Comentario" >
            <p:cellEditor>
@@ -550,7 +598,7 @@
     emptyMessage="No hay registros disponibles">
        <p:ajax event="rowEdit" listener="#{PruebaDienteMBController.modifica1}"  />
  
-       <p:column headerText="Nombres" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
+       <p:column headerText="Identificacion" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.identificacion}" /></f:facet>
                <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.identificacion}" style="width:100%" >
@@ -558,7 +606,23 @@
                </f:facet>
            </p:cellEditor>
        </p:column>
+       <p:column headerText="fecha">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.fechaCreacion}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.fechaCreacion}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
        
+       <p:column headerText="proyecto" filterBy="#{_departamento.proyecto}" filterMatchMode="startsWith">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.proyecto}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.proyecto}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
         <p:column headerText="Comentario" >
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.d4coment}" /></f:facet>
@@ -631,7 +695,7 @@
     emptyMessage="No hay registros disponibles">
        <p:ajax event="rowEdit" listener="#{PruebaDienteMBController.modifica1}"  />
  
-       <p:column headerText="Nombres" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
+       <p:column headerText="Identificacion" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.identificacion}" /></f:facet>
                <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.identificacion}" style="width:100%" >
@@ -639,7 +703,23 @@
                </f:facet>
            </p:cellEditor>
        </p:column>
+       <p:column headerText="fecha">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.fechaCreacion}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.fechaCreacion}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
        
+       <p:column headerText="proyecto" filterBy="#{_departamento.proyecto}" filterMatchMode="startsWith">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.proyecto}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.proyecto}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
         <p:column headerText="Comentario" >
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.d5coment}" /></f:facet>
@@ -711,7 +791,7 @@
     emptyMessage="No hay registros disponibles">
        <p:ajax event="rowEdit" listener="#{PruebaDienteMBController.modifica1}"  />
  
-       <p:column headerText="Nombres" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
+       <p:column headerText="Identificacion" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.identificacion}" /></f:facet>
                <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.identificacion}" style="width:100%" >
@@ -719,7 +799,23 @@
                </f:facet>
            </p:cellEditor>
        </p:column>
+       <p:column headerText="fecha">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.fechaCreacion}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.fechaCreacion}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
        
+       <p:column headerText="proyecto" filterBy="#{_departamento.proyecto}" filterMatchMode="startsWith">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.proyecto}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.proyecto}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
         <p:column headerText="Comentario" >
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.d6coment}" /></f:facet>
@@ -791,7 +887,7 @@
     emptyMessage="No hay registros disponibles">
        <p:ajax event="rowEdit" listener="#{PruebaDienteMBController.modifica1}"  />
  
-       <p:column headerText="Nombres" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
+       <p:column headerText="Identificacion" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.identificacion}" /></f:facet>
                <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.identificacion}" style="width:100%" >
@@ -799,7 +895,23 @@
                </f:facet>
            </p:cellEditor>
        </p:column>
+       <p:column headerText="fecha">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.fechaCreacion}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.fechaCreacion}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
        
+       <p:column headerText="proyecto" filterBy="#{_departamento.proyecto}" filterMatchMode="startsWith">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.proyecto}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.proyecto}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
         <p:column headerText="Comentario" >
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.d7coment}" /></f:facet>
@@ -870,7 +982,7 @@
     emptyMessage="No hay registros disponibles">
        <p:ajax event="rowEdit" listener="#{PruebaDienteMBController.modifica1}"  />
  
-       <p:column headerText="Nombres" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
+       <p:column headerText="Identificacion" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.identificacion}" /></f:facet>
                <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.identificacion}" style="width:100%" >
@@ -878,7 +990,23 @@
                </f:facet>
            </p:cellEditor>
        </p:column>
+       <p:column headerText="fecha">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.fechaCreacion}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.fechaCreacion}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
        
+       <p:column headerText="proyecto" filterBy="#{_departamento.proyecto}" filterMatchMode="startsWith">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.proyecto}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.proyecto}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
         <p:column headerText="Comentario" >
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.d8coment}" /></f:facet>
@@ -950,7 +1078,7 @@
     emptyMessage="No hay registros disponibles">
        <p:ajax event="rowEdit" listener="#{PruebaDienteMBController.modifica1}"  />
  
-       <p:column headerText="Nombres" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
+       <p:column headerText="Identificacion" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.identificacion}" /></f:facet>
                <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.identificacion}" style="width:100%" >
@@ -958,7 +1086,23 @@
                </f:facet>
            </p:cellEditor>
        </p:column>
+       <p:column headerText="fecha">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.fechaCreacion}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.fechaCreacion}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
        
+       <p:column headerText="proyecto" filterBy="#{_departamento.proyecto}" filterMatchMode="startsWith">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.proyecto}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.proyecto}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
         <p:column headerText="Comentario" >
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.d9coment}" /></f:facet>
@@ -1029,7 +1173,7 @@
     emptyMessage="No hay registros disponibles">
        <p:ajax event="rowEdit" listener="#{PruebaDienteMBController.modifica1}"  />
  
-       <p:column headerText="Nombres" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
+       <p:column headerText="Identificacion" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.identificacion}" /></f:facet>
                <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.identificacion}" style="width:100%" >
@@ -1037,7 +1181,23 @@
                </f:facet>
            </p:cellEditor>
        </p:column>
+       <p:column headerText="fecha">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.fechaCreacion}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.fechaCreacion}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
        
+       <p:column headerText="proyecto" filterBy="#{_departamento.proyecto}" filterMatchMode="startsWith">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.proyecto}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.proyecto}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
         <p:column headerText="Comentario" >
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.d10coment}" /></f:facet>
@@ -1109,7 +1269,7 @@
     emptyMessage="No hay registros disponibles">
        <p:ajax event="rowEdit" listener="#{PruebaDienteMBController.modifica1}"  />
  
-       <p:column headerText="Nombres" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
+       <p:column headerText="Identificacion" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.identificacion}" /></f:facet>
                <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.identificacion}" style="width:100%" >
@@ -1117,7 +1277,23 @@
                </f:facet>
            </p:cellEditor>
        </p:column>
+       <p:column headerText="fecha">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.fechaCreacion}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.fechaCreacion}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
        
+       <p:column headerText="proyecto" filterBy="#{_departamento.proyecto}" filterMatchMode="startsWith">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.proyecto}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.proyecto}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
         <p:column headerText="Comentario" >
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.d11coment}" /></f:facet>
@@ -1189,7 +1365,7 @@
     emptyMessage="No hay registros disponibles">
        <p:ajax event="rowEdit" listener="#{PruebaDienteMBController.modifica1}"  />
  
-       <p:column headerText="Nombres" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
+       <p:column headerText="Identificacion" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.identificacion}" /></f:facet>
                <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.identificacion}" style="width:100%" >
@@ -1197,7 +1373,23 @@
                </f:facet>
            </p:cellEditor>
        </p:column>
+       <p:column headerText="fecha">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.fechaCreacion}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.fechaCreacion}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
        
+       <p:column headerText="proyecto" filterBy="#{_departamento.proyecto}" filterMatchMode="startsWith">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.proyecto}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.proyecto}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
         <p:column headerText="Comentario" >
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.d12coment}" /></f:facet>
@@ -1269,7 +1461,7 @@
     emptyMessage="No hay registros disponibles">
        <p:ajax event="rowEdit" listener="#{PruebaDienteMBController.modifica1}"  />
  
-       <p:column headerText="Nombres" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
+       <p:column headerText="Identificacion" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.identificacion}" /></f:facet>
                <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.identificacion}" style="width:100%" >
@@ -1277,7 +1469,23 @@
                </f:facet>
            </p:cellEditor>
        </p:column>
+       <p:column headerText="fecha">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.fechaCreacion}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.fechaCreacion}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
        
+       <p:column headerText="proyecto" filterBy="#{_departamento.proyecto}" filterMatchMode="startsWith">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.proyecto}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.proyecto}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
         <p:column headerText="Comentario" >
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.d13coment}" /></f:facet>
@@ -1349,7 +1557,7 @@
     emptyMessage="No hay registros disponibles">
        <p:ajax event="rowEdit" listener="#{PruebaDienteMBController.modifica1}"  />
  
-       <p:column headerText="Nombres" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
+       <p:column headerText="Identificacion" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.identificacion}" /></f:facet>
                <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.identificacion}" style="width:100%" >
@@ -1357,7 +1565,23 @@
                </f:facet>
            </p:cellEditor>
        </p:column>
+       <p:column headerText="fecha">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.fechaCreacion}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.fechaCreacion}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
        
+       <p:column headerText="proyecto" filterBy="#{_departamento.proyecto}" filterMatchMode="startsWith">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.proyecto}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.proyecto}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
        
         <p:column headerText="Comentario" >
            <p:cellEditor>
@@ -1420,7 +1644,7 @@
     emptyMessage="No hay registros disponibles">
        <p:ajax event="rowEdit" listener="#{PruebaDienteMBController.modifica1}"  />
  
-       <p:column headerText="Nombres" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
+       <p:column headerText="Identificacion" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.identificacion}" /></f:facet>
                <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.identificacion}" style="width:100%" >
@@ -1429,7 +1653,23 @@
            </p:cellEditor>
        </p:column>
        
+       <p:column headerText="fecha">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.fechaCreacion}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.fechaCreacion}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
        
+       <p:column headerText="proyecto" filterBy="#{_departamento.proyecto}" filterMatchMode="startsWith">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.proyecto}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.proyecto}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
         <p:column headerText="Comentario" >
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.d5coment}" /></f:facet>
@@ -1491,7 +1731,7 @@
     emptyMessage="No hay registros disponibles">
        <p:ajax event="rowEdit" listener="#{PruebaDienteMBController.modifica1}"  />
  
-       <p:column headerText="Nombres" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
+       <p:column headerText="Identificacion" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.identificacion}" /></f:facet>
                <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.identificacion}" style="width:100%" >
@@ -1500,7 +1740,23 @@
            </p:cellEditor>
        </p:column>
        
+       <p:column headerText="fecha">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.fechaCreacion}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.fechaCreacion}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
        
+       <p:column headerText="proyecto" filterBy="#{_departamento.proyecto}" filterMatchMode="startsWith">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.proyecto}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.proyecto}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
         <p:column headerText="Comentario" >
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.d16coment}" /></f:facet>
@@ -1561,7 +1817,7 @@
     emptyMessage="No hay registros disponibles">
        <p:ajax event="rowEdit" listener="#{PruebaDienteMBController.modifica1}"  />
  
-       <p:column headerText="Nombres" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
+       <p:column headerText="Identificacion" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.identificacion}" /></f:facet>
                <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.identificacion}" style="width:100%" >
@@ -1569,7 +1825,23 @@
                </f:facet>
            </p:cellEditor>
        </p:column>
+       <p:column headerText="fecha">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.fechaCreacion}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.fechaCreacion}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
        
+       <p:column headerText="proyecto" filterBy="#{_departamento.proyecto}" filterMatchMode="startsWith">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.proyecto}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.proyecto}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
        
         <p:column headerText="Comentario" >
            <p:cellEditor>
@@ -1633,7 +1905,7 @@
     emptyMessage="No hay registros disponibles">
        <p:ajax event="rowEdit" listener="#{PruebaDienteMBController.modifica1}"  />
  
-       <p:column headerText="Nombres" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
+       <p:column headerText="Identificacion" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.identificacion}" /></f:facet>
                <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.identificacion}" style="width:100%" >
@@ -1642,7 +1914,23 @@
            </p:cellEditor>
        </p:column>
        
+       <p:column headerText="fecha">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.fechaCreacion}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.fechaCreacion}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
        
+       <p:column headerText="proyecto" filterBy="#{_departamento.proyecto}" filterMatchMode="startsWith">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.proyecto}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.proyecto}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
         <p:column headerText="Comentario" >
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.d18coment}" /></f:facet>
@@ -1704,7 +1992,7 @@
     emptyMessage="No hay registros disponibles">
        <p:ajax event="rowEdit" listener="#{PruebaDienteMBController.modifica1}"  />
  
-       <p:column headerText="Nombres" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
+       <p:column headerText="Identificacion" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.identificacion}" /></f:facet>
                <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.identificacion}" style="width:100%" >
@@ -1712,7 +2000,23 @@
                </f:facet>
            </p:cellEditor>
        </p:column>
+       <p:column headerText="fecha">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.fechaCreacion}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.fechaCreacion}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
        
+       <p:column headerText="proyecto" filterBy="#{_departamento.proyecto}" filterMatchMode="startsWith">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.proyecto}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.proyecto}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
        
         <p:column headerText="Comentario" >
            <p:cellEditor>
@@ -1775,7 +2079,7 @@
     emptyMessage="No hay registros disponibles">
        <p:ajax event="rowEdit" listener="#{PruebaDienteMBController.modifica1}"  />
  
-       <p:column headerText="Nombres" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
+       <p:column headerText="Identificacion" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.identificacion}" /></f:facet>
                <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.identificacion}" style="width:100%" >
@@ -1783,7 +2087,23 @@
                </f:facet>
            </p:cellEditor>
        </p:column>
+       <p:column headerText="fecha">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.fechaCreacion}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.fechaCreacion}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
        
+       <p:column headerText="proyecto" filterBy="#{_departamento.proyecto}" filterMatchMode="startsWith">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.proyecto}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.proyecto}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
         <p:column headerText="Comentario" >
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.d20coment}" /></f:facet>
@@ -1855,7 +2175,7 @@
     emptyMessage="No hay registros disponibles">
        <p:ajax event="rowEdit" listener="#{PruebaDienteMBController.modifica1}"  />
  
-       <p:column headerText="Nombres" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
+       <p:column headerText="Identificacion" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.identificacion}" /></f:facet>
                <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.identificacion}" style="width:100%" >
@@ -1863,7 +2183,23 @@
                </f:facet>
            </p:cellEditor>
        </p:column>
+       <p:column headerText="fecha">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.fechaCreacion}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.fechaCreacion}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
        
+       <p:column headerText="proyecto" filterBy="#{_departamento.proyecto}" filterMatchMode="startsWith">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.proyecto}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.proyecto}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
         <p:column headerText="Comentario" >
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.d21coment}" /></f:facet>
@@ -1934,7 +2270,7 @@
     emptyMessage="No hay registros disponibles">
        <p:ajax event="rowEdit" listener="#{PruebaDienteMBController.modifica1}"  />
  
-       <p:column headerText="Nombres" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
+       <p:column headerText="Identificacion" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.identificacion}" /></f:facet>
                <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.identificacion}" style="width:100%" >
@@ -1942,7 +2278,23 @@
                </f:facet>
            </p:cellEditor>
        </p:column>
+       <p:column headerText="fecha">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.fechaCreacion}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.fechaCreacion}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
        
+       <p:column headerText="proyecto" filterBy="#{_departamento.proyecto}" filterMatchMode="startsWith">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.proyecto}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.proyecto}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
         <p:column headerText="Comentario" >
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.d22coment}" /></f:facet>
@@ -2013,7 +2365,7 @@
     emptyMessage="No hay registros disponibles">
        <p:ajax event="rowEdit" listener="#{PruebaDienteMBController.modifica1}"  />
  
-       <p:column headerText="Nombres" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
+       <p:column headerText="Identificacion" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.identificacion}" /></f:facet>
                <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.identificacion}" style="width:100%" >
@@ -2021,7 +2373,23 @@
                </f:facet>
            </p:cellEditor>
        </p:column>
+       <p:column headerText="fecha">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.fechaCreacion}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.fechaCreacion}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
        
+       <p:column headerText="proyecto" filterBy="#{_departamento.proyecto}" filterMatchMode="startsWith">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.proyecto}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.proyecto}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
         <p:column headerText="Comentario" >
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.d23coment}" /></f:facet>
@@ -2093,7 +2461,7 @@
     emptyMessage="No hay registros disponibles">
        <p:ajax event="rowEdit" listener="#{PruebaDienteMBController.modifica1}"  />
  
-       <p:column headerText="Nombres" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
+       <p:column headerText="Identificacion" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.identificacion}" /></f:facet>
                <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.identificacion}" style="width:100%" >
@@ -2101,7 +2469,23 @@
                </f:facet>
            </p:cellEditor>
        </p:column>
+       <p:column headerText="fecha">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.fechaCreacion}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.fechaCreacion}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
        
+       <p:column headerText="proyecto" filterBy="#{_departamento.proyecto}" filterMatchMode="startsWith">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.proyecto}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.proyecto}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
         <p:column headerText="Comentario" >
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.d24coment}" /></f:facet>
@@ -2172,7 +2556,7 @@
     emptyMessage="No hay registros disponibles">
        <p:ajax event="rowEdit" listener="#{PruebaDienteMBController.modifica1}"  />
  
-       <p:column headerText="Nombres" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
+       <p:column headerText="Identificacion" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.identificacion}" /></f:facet>
                <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.identificacion}" style="width:100%" >
@@ -2180,7 +2564,23 @@
                </f:facet>
            </p:cellEditor>
        </p:column>
+       <p:column headerText="fecha">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.fechaCreacion}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.fechaCreacion}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
        
+       <p:column headerText="proyecto" filterBy="#{_departamento.proyecto}" filterMatchMode="startsWith">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.proyecto}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.proyecto}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
         <p:column headerText="Comentario" >
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.d25coment}" /></f:facet>
@@ -2251,7 +2651,7 @@
     emptyMessage="No hay registros disponibles">
        <p:ajax event="rowEdit" listener="#{PruebaDienteMBController.modifica1}"  />
  
-       <p:column headerText="Nombres" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
+       <p:column headerText="Identificacion" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.identificacion}" /></f:facet>
                <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.identificacion}" style="width:100%" >
@@ -2259,7 +2659,23 @@
                </f:facet>
            </p:cellEditor>
        </p:column>
+       <p:column headerText="fecha">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.fechaCreacion}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.fechaCreacion}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
        
+       <p:column headerText="proyecto" filterBy="#{_departamento.proyecto}" filterMatchMode="startsWith">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.proyecto}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.proyecto}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
         <p:column headerText="Comentario" >
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.d26coment}" /></f:facet>
@@ -2331,7 +2747,7 @@
     emptyMessage="No hay registros disponibles">
        <p:ajax event="rowEdit" listener="#{PruebaDienteMBController.modifica1}"  />
  
-       <p:column headerText="Nombres" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
+       <p:column headerText="Identificacion" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.identificacion}" /></f:facet>
                <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.identificacion}" style="width:100%" >
@@ -2339,7 +2755,23 @@
                </f:facet>
            </p:cellEditor>
        </p:column>
+       <p:column headerText="fecha">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.fechaCreacion}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.fechaCreacion}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
        
+       <p:column headerText="proyecto" filterBy="#{_departamento.proyecto}" filterMatchMode="startsWith">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.proyecto}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.proyecto}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
         <p:column headerText="Comentario" >
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.d27coment}" /></f:facet>
@@ -2411,7 +2843,7 @@
     emptyMessage="No hay registros disponibles">
        <p:ajax event="rowEdit" listener="#{PruebaDienteMBController.modifica1}"  />
  
-       <p:column headerText="Nombres" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
+       <p:column headerText="Identificacion" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.identificacion}" /></f:facet>
                <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.identificacion}" style="width:100%" >
@@ -2419,7 +2851,23 @@
                </f:facet>
            </p:cellEditor>
        </p:column>
+       <p:column headerText="fecha">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.fechaCreacion}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.fechaCreacion}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
        
+       <p:column headerText="proyecto" filterBy="#{_departamento.proyecto}" filterMatchMode="startsWith">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.proyecto}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.proyecto}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
         <p:column headerText="Comentario" >
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.d28coment}" /></f:facet>
@@ -2491,7 +2939,7 @@
     emptyMessage="No hay registros disponibles">
        <p:ajax event="rowEdit" listener="#{PruebaDienteMBController.modifica1}"  />
  
-       <p:column headerText="Nombres" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
+       <p:column headerText="Identificacion" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.identificacion}" /></f:facet>
                <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.identificacion}" style="width:100%" >
@@ -2499,7 +2947,23 @@
                </f:facet>
            </p:cellEditor>
        </p:column>
+       <p:column headerText="fecha">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.fechaCreacion}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.fechaCreacion}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
        
+       <p:column headerText="proyecto" filterBy="#{_departamento.proyecto}" filterMatchMode="startsWith">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.proyecto}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.proyecto}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
         <p:column headerText="Comentario" >
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.d29coment}" /></f:facet>
@@ -2571,7 +3035,7 @@
     emptyMessage="No hay registros disponibles">
        <p:ajax event="rowEdit" listener="#{PruebaDienteMBController.modifica1}"  />
  
-       <p:column headerText="Nombres" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
+       <p:column headerText="Identificacion" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.identificacion}" /></f:facet>
                <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.identificacion}" style="width:100%" >
@@ -2579,7 +3043,23 @@
                </f:facet>
            </p:cellEditor>
        </p:column>
+       <p:column headerText="fecha">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.fechaCreacion}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.fechaCreacion}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
        
+       <p:column headerText="proyecto" filterBy="#{_departamento.proyecto}" filterMatchMode="startsWith">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.proyecto}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.proyecto}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
         <p:column headerText="Comentario" >
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.d30coment}" /></f:facet>
@@ -2642,7 +3122,7 @@
     emptyMessage="No hay registros disponibles">
        <p:ajax event="rowEdit" listener="#{PruebaDienteMBController.modifica1}"  />
  
-       <p:column headerText="Nombres" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
+       <p:column headerText="Identificacion" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.identificacion}" /></f:facet>
                <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.identificacion}" style="width:100%" >
@@ -2650,7 +3130,23 @@
                </f:facet>
            </p:cellEditor>
        </p:column>
+       <p:column headerText="fecha">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.fechaCreacion}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.fechaCreacion}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
        
+       <p:column headerText="proyecto" filterBy="#{_departamento.proyecto}" filterMatchMode="startsWith">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.proyecto}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.proyecto}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
         <p:column headerText="Comentario" >
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.d31coment}" /></f:facet>
@@ -2714,10 +3210,44 @@
     emptyMessage="No hay registros disponibles">
        <p:ajax event="rowEdit" listener="#{PruebaDienteMBController.modifica1}"  />
  
-       <p:column headerText="Nombres" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
+       <p:column headerText="Identificacion" filterBy="#{_departamento.identificacion}" filterMatchMode="startsWith">
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{_departamento.identificacion}" /></f:facet>
                <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.identificacion}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
+       <p:column headerText="fecha">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.fechaCreacion}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.fechaCreacion}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
+       
+       <p:column headerText="proyecto" filterBy="#{_departamento.proyecto}" filterMatchMode="startsWith">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.proyecto}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.proyecto}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
+       <p:column headerText="fecha" filterBy="#{_departamento.fechaCreacion}" filterMatchMode="startsWith">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.fechaCreacion}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.fechaCreacion}" style="width:100%" >
+            </p:inputText>            
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
+       
+       <p:column headerText="proyecto" filterBy="#{_departamento.proyecto}" filterMatchMode="startsWith">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{_departamento.proyecto}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{PruebaDienteMBController.proyecto}" style="width:100%" >
             </p:inputText>            
                </f:facet>
            </p:cellEditor>

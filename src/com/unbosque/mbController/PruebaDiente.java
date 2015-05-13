@@ -2,6 +2,7 @@ package com.unbosque.mbController;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,7 +47,8 @@ public class PruebaDiente implements Serializable {
 	}
     
     
-    
+	private String proyecto;
+
     private char t4; private char t5; private char t6; private char t7; private char t8; private char t9;
     private char t10; private char t11; private char t12; private char t13; private char t20; private char t21;
     private char t22; private char t23; private char t24; private char t25; private char t26; private char t27;
@@ -123,10 +125,11 @@ public class PruebaDiente implements Serializable {
     private String c21; private String c24; private String c27; private String c29; private String c31;
     private String c22; private String c25; private String c28; private String c30; private String c32;
     private String c23; private String c26;
-    
+	private Timestamp fechaCreacion;
+
 	List<Donto> dontoList;
 	private BarChartModel animatedModel2;
-	private String identificacion;
+	private Integer identificacion;
     @PostConstruct
     public void init() {
   	 
@@ -145,7 +148,9 @@ public class PruebaDiente implements Serializable {
     		
     
     Donto don = new Donto();
-    
+    don.setIdentificacion(getIdentificacion());
+    don.setProyecto(getProyecto());
+    don.setFechaCreacion(new Timestamp(System.currentTimeMillis()));
     don.setD1coment(getC1()); don.setD2coment(getC2()); don.setD3coment(getC3()); don.setD4coment(getC4()); 
     don.setD5coment(getC5()); don.setD6coment(getC6()); don.setD7coment(getC7()); don.setD8coment(getC8());
     don.setD9coment(getC9()); don.setD10coment(getC10()); don.setD11coment(getC11()); don.setD12coment(getC12()); 
@@ -206,7 +211,7 @@ public class PruebaDiente implements Serializable {
     
          
         animatedModel2 = initBarModel();
-        animatedModel2.setTitle("Bar Charts");
+        animatedModel2.setTitle("Estadisticas Diente 1");
         animatedModel2.setAnimate(true);
         animatedModel2.setLegendPosition("ne");
         Axis yAxis = animatedModel2.getAxis(AxisType.Y);
@@ -214,37 +219,41 @@ public class PruebaDiente implements Serializable {
         yAxis.setMax(10);
     }
     private BarChartModel initBarModel() {
-    	int cero=0;
-    	int uno=0;
-    	int dos=0;
-    	int tres=0;
-    	int cuatro=0;
-    	int cinco=0;
-    	int seis=0;
-    	int siete=0;
+    	int cero=0;int uno=0;int dos=0;int tres=0;int cuatro=0;int cinco=0;int seis=0;int siete=0;
         BarChartModel model = new BarChartModel();
         ChartSeries boys = new ChartSeries();
+        ChartSeries a = new ChartSeries();
+        ChartSeries c = new ChartSeries();
+        ChartSeries i = new ChartSeries();
+        ChartSeries d = new ChartSeries();
+
 
         boys.setLabel("Cara de Arriba");
+        a.setLabel("Cara de Abajo");
+        c.setLabel("Cara del Centro");
+        i.setLabel("Cara Izquierda");
+        d.setLabel("Cara Derecha");
 
- for (int i = 0; i < dontoList.size(); i++) {
-	if(dontoList.get(i).getCd11()==0)cero++;
-	if(dontoList.get(i).getCd11()==1)uno++;
-	if(dontoList.get(i).getCd11()==2)dos++;
-	if(dontoList.get(i).getCd11()==3)tres++;
-	if(dontoList.get(i).getCd11()==4)cuatro++;
-	if(dontoList.get(i).getCd11()==5)cinco++;
-	if(dontoList.get(i).getCd11()==6)seis++;
-	if(dontoList.get(i).getCd11()==7)siete++;
+
+ for (int i1 = 0; i1 < dontoList.size(); i1++) {
+	if(dontoList.get(i1).getCd11()==0)cero++;
+	if(dontoList.get(i1).getCd11()==1)uno++;
+	if(dontoList.get(i1).getCd11()==2)dos++;
+	if(dontoList.get(i1).getCd11()==3)tres++;
+	if(dontoList.get(i1).getCd11()==4)cuatro++;
+	if(dontoList.get(i1).getCd11()==5)cinco++;
+	if(dontoList.get(i1).getCd11()==6)seis++;
+	if(dontoList.get(i1).getCd11()==7)siete++;
 }
- System.out.println(uno);
- System.out.println(dos);
- System.out.println(tres);
- System.out.println(cuatro);
- System.out.println(cinco);
- System.out.println(seis);
- System.out.println(siete);
-        
+// System.out.println(uno);
+// System.out.println(dos);
+// System.out.println(tres);
+// System.out.println(cuatro);
+// System.out.println(cinco);
+// System.out.println(seis);
+// System.out.println(siete);
+//        
+ 
  boys.set("0",cero);
  boys.set("1",uno);
  boys.set("2",dos);
@@ -252,11 +261,111 @@ public class PruebaDiente implements Serializable {
  boys.set("4",cuatro);
  boys.set("5",cinco);
  boys.set("6",seis);
- boys.set("7",seis);
-
-       
-        model.addSeries(boys);
+ boys.set("7",siete);
+ 
+ model.addSeries(boys);
          
+	cero=0;uno=0;dos=0; tres=0; cuatro=0; cinco=0; seis=0; siete=0;
+
+        for (int i1 = 0; i1 < dontoList.size(); i1++) {
+        	if(dontoList.get(i1).getCd12()==0)cero++;
+        	if(dontoList.get(i1).getCd12()==1)uno++;
+        	if(dontoList.get(i1).getCd12()==2)dos++;
+        	if(dontoList.get(i1).getCd12()==3)tres++;
+        	if(dontoList.get(i1).getCd12()==4)cuatro++;
+        	if(dontoList.get(i1).getCd12()==5)cinco++;
+        	if(dontoList.get(i1).getCd12()==6)seis++;
+        	if(dontoList.get(i1).getCd12()==7)siete++;
+        }       
+        
+        a.set("0",cero);
+        a.set("1",uno);
+        a.set("2",dos);
+        a.set("3",tres);
+        a.set("4",cuatro);
+        a.set("5",cinco);
+        a.set("6",seis);
+        a.set("7",siete);      
+        
+        
+        model.addSeries(a);   
+        
+        
+        cero=0;uno=0;dos=0; tres=0; cuatro=0; cinco=0; seis=0; siete=0;
+
+        for (int i1 = 0; i1 < dontoList.size(); i1++) {
+        	if(dontoList.get(i1).getCd13()==0)cero++;
+        	if(dontoList.get(i1).getCd13()==1)uno++;
+        	if(dontoList.get(i1).getCd13()==2)dos++;
+        	if(dontoList.get(i1).getCd13()==3)tres++;
+        	if(dontoList.get(i1).getCd13()==4)cuatro++;
+        	if(dontoList.get(i1).getCd13()==5)cinco++;
+        	if(dontoList.get(i1).getCd13()==6)seis++;
+        	if(dontoList.get(i1).getCd13()==7)siete++;
+        }       
+        
+        c.set("0",cero);
+        c.set("1",uno);
+        c.set("2",dos);
+        c.set("3",tres);
+        c.set("4",cuatro);
+        c.set("5",cinco);
+        c.set("6",seis);
+        c.set("7",siete);      
+        
+        
+        model.addSeries(c);   cero=0;uno=0;dos=0; tres=0; cuatro=0; cinco=0; seis=0; siete=0;
+
+        for (int i1 = 0; i1 < dontoList.size(); i1++) {
+        	if(dontoList.get(i1).getCd14()==0)cero++;
+        	if(dontoList.get(i1).getCd14()==1)uno++;
+        	if(dontoList.get(i1).getCd14()==2)dos++;
+        	if(dontoList.get(i1).getCd14()==3)tres++;
+        	if(dontoList.get(i1).getCd14()==4)cuatro++;
+        	if(dontoList.get(i1).getCd14()==5)cinco++;
+        	if(dontoList.get(i1).getCd14()==6)seis++;
+        	if(dontoList.get(i1).getCd14()==7)siete++;
+        }       
+        
+        i.set("0",cero);
+        i.set("1",uno);
+        i.set("2",dos);
+        i.set("3",tres);
+        i.set("4",cuatro);
+        i.set("5",cinco);
+        i.set("6",seis);
+        i.set("7",siete);      
+        
+        
+        model.addSeries(i);   cero=0;uno=0;dos=0; tres=0; cuatro=0; cinco=0; seis=0; siete=0;
+
+        for (int i1 = 0; i1 < dontoList.size(); i1++) {
+        	if(dontoList.get(i1).getCd15()==0)cero++;
+        	if(dontoList.get(i1).getCd15()==1)uno++;
+        	if(dontoList.get(i1).getCd15()==2)dos++;
+        	if(dontoList.get(i1).getCd15()==3)tres++;
+        	if(dontoList.get(i1).getCd15()==4)cuatro++;
+        	if(dontoList.get(i1).getCd15()==5)cinco++;
+        	if(dontoList.get(i1).getCd15()==6)seis++;
+        	if(dontoList.get(i1).getCd15()==7)siete++;
+        }       
+        
+        d.set("0",cero);
+        d.set("1",uno);
+        d.set("2",dos);
+        d.set("3",tres);
+        d.set("4",cuatro);
+        d.set("5",cinco);
+        d.set("6",seis);
+        d.set("7",siete);      
+        
+        
+        model.addSeries(d);   
+        
+        
+        
+        
+        
         return model;
     }
     
@@ -4110,14 +4219,30 @@ public class PruebaDiente implements Serializable {
 		this.dontoList = dontoList;
 	}
 
-	public String getIdentificacion() {
+	public Integer getIdentificacion() {
 		return identificacion;
 	}
 
-	public void setIdentificacion(String identificacion) {
+	public void setIdentificacion(Integer identificacion) {
 		this.identificacion = identificacion;
 	}
 
+	public String getProyecto() {
+		return proyecto;
+	}
 
+	public void setProyecto(String proyecto) {
+		this.proyecto = proyecto;
+	}
+
+	public Timestamp getFechaCreacion() {
+		return fechaCreacion;
+	}
+
+	public void setFechaCreacion(Timestamp fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
+
+	
     
     }

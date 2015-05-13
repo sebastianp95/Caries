@@ -1,13 +1,13 @@
 package com.unbosque.mbController;
 
 import java.io.IOException;
-
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.LinkedHashSet;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
@@ -30,6 +30,9 @@ import org.springframework.dao.DataAccessException;
 
 
 
+
+
+import com.unbosque.entidad.Departamento;
 import com.unbosque.entidad.Usuario;
 import com.unbosque.service.UsuarioService;
 
@@ -56,7 +59,6 @@ public class UsuarioManagedBean implements Serializable {
 	ArrayList<String> use= new ArrayList<String>();
 
 	List<Usuario> usuarioList;
-
 	private Integer id;
 	private String apellidosNombres;
 	private String correo;
@@ -72,6 +74,8 @@ public class UsuarioManagedBean implements Serializable {
 	private String proyecto;
 	private int block;
 	private String newPass;
+	private String user;
+	
 	
 	public void addUsuario() {
 		try {
@@ -84,7 +88,7 @@ public class UsuarioManagedBean implements Serializable {
 			CifrarClave ci = new CifrarClave();
 			usuario.setApellidosNombres(getApellidosNombres());
 			
-			long treinta = (30 * 24 * 60 * 60 * 1000) +System.currentTimeMillis();
+			long treinta = -(30 * 24 * 60 * 60 * 1000) +System.currentTimeMillis();
 			
 			 SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//dd/MM/yyyy
 			    Date now = new Date();
@@ -120,6 +124,19 @@ public class UsuarioManagedBean implements Serializable {
 		}
 
 	}
+	
+	 
+	public List<String> getUsuarioNombre() {
+        usuarioList = new ArrayList<Usuario>();
+        List<String> usu = new ArrayList<String>();
+        usuarioList.addAll(getUsuarioService().getUsuarios());
+        for (int i = 0; i < usuarioList.size(); i++) {
+        	usu.add(usuarioList.get(i).getProyecto());
+		}
+        usu = new ArrayList<String>(new LinkedHashSet<String>(usu));
+
+        return usu;
+    }
 	
 	public void enviaMail(String mail,String usuario,String contrasena){
 		FacesContext context = FacesContext.getCurrentInstance();
@@ -179,14 +196,11 @@ public class UsuarioManagedBean implements Serializable {
 	        	 getUsuarioService().updateUsuario(user);
 			    	FacesContext.getCurrentInstance().addMessage("login error: ", new FacesMessage("Exitoso"));
 			    	
-		    		context.getExternalContext().redirect("Login.xhtml");	
+		    		context.getExternalContext().redirect("../Login.xhtml");	
 
-			    	
-				
+			    				
 			}
-	           
-
-    		
+	               		
     	}
     	 } catch (Exception e) {
     		 FacesContext.getCurrentInstance().addMessage("Mensaje", new FacesMessage("El usuario no existe"));
@@ -298,8 +312,16 @@ if(verificarPass(getPassword())){
 		
 	}
 
-	public void getLogin1() throws IOException {
+	public void propUsuario(){
+		 Usuario usuario = getUsuarioService().getUsuarioByLogin(getLogin());
+
 		
+		user=usuario.getProyecto();
+		System.out.println("asdasdasdasdasdasdadasda");
+System.out.println(user);		
+	}
+	public void getLogin1() throws IOException {
+		propUsuario();
 		use.add(getLogin());
 		CifrarClave ci = new CifrarClave();
 		 FacesContext context = FacesContext.getCurrentInstance();
@@ -318,7 +340,7 @@ if(verificarPass(getPassword())){
 				System.out.println(usuarioList.get(j).getTipoUsuario());
 				
 				if(usuarioList.get(j).getTipoUsuario().equals('A')&&usuarioList.get(j).getEstado()==('A')){
-					if(actual<usuario.getFechaClave().getTime()){
+					if(actual>usuario.getFechaClave().getTime()){
 					    FacesContext.getCurrentInstance().addMessage("login error: ", new FacesMessage("Debe Cambiar su clave: "+ ""));
 						 context.getExternalContext().redirect("admin/cambioContra.xhtml");	}
 						 else{
@@ -578,6 +600,14 @@ if(verificarPass(getPassword())){
 
 	public void setProyecto(String proyecto) {
 		this.proyecto = proyecto;
+	}
+
+	public String getUser() {
+		return user;
+	}
+
+	public void setUser(String user) {
+		this.user = user;
 	}
 
 

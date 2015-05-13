@@ -325,13 +325,37 @@
 		<div class="centro click"></div>
 	</div>
 	
-	<p:commandButton value="Grabar" actionListener="#{PruebaDienteMBController.save()}" ajax="true" style="position: absolute; width: 100px; height: 50px;left: 200px;top: 140px; margin: 270px 0 0 240px;" >
- </p:commandButton>
-	</div>
-	
+ <p:commandButton value="Grabar" onclick="PF('dlg99').show();" ajax="true" style="position: absolute; width: 100px; height: 50px;left: 200px;top: 140px; margin: 270px 0 0 240px;" ></p:commandButton>
  
+ 
+ 
+	</div>
+
+ <p:dialog  header="Guardar" widgetVar="dlg99" resizable="true" showEffect="puff"  modal="true" width="570" height="400"  hideEffect="explode"  position="200,200">
+    <h:panelGrid  columns="2">
+	  <h:outputText value="Proyecto" />
+	  
+				<h:selectOneMenu  value="#{PruebaDienteMBController.proyecto}" required="true" label="Text 3">
+				      	                   	<f:selectItem itemLabel	="- Seleccione -" itemValue=""/>
+				
+                 	<f:selectItems value="#{usuarioMBController.getUsuarioNombre()}" />
+                </h:selectOneMenu>  
+      	  <h:outputText value="ID Paciente" />
+      	  
+      	  <h:selectOneMenu  value="#{PruebaDienteMBController.identificacion}" required="true" label="Text 3">
+      	                   	<f:selectItem itemLabel	="- Seleccione -" itemValue=""/>
+      	  
+                 	<f:selectItems value="#{pacienteMBController.getPacienteId()}" />
+                </h:selectOneMenu> 
+                  	
+				</h:panelGrid>
+ <p:commandButton value="Grabar"  actionListener="#{PruebaDienteMBController.save()}" ajax="true" ></p:commandButton>
+
+	
+</p:dialog>
+				
     <p:dialog  header="Datos" widgetVar="dlg" resizable="true" showEffect="puff"  modal="true" width="570" height="400"  hideEffect="explode"  position="200,200">
-    <h:panelGrid id="loginPanel" columns="2">
+    <h:panelGrid columns="2">
 	  <h:outputText value="Arriba" />
 				<h:selectOneMenu id="txt1" value="#{PruebaDienteMBController.d11}"
 					required="true" requiredMessage="Seleccione Tipo usuario">

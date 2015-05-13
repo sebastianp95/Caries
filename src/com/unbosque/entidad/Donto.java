@@ -235,6 +235,7 @@ public class Donto implements java.io.Serializable {
 	private Integer cd324;
 	private Integer cd325;
 	private String d32coment;
+	private String proyecto;
 
 	public Donto() {
 	}
@@ -296,8 +297,10 @@ public class Donto implements java.io.Serializable {
 			Integer cd303, Integer cd304, Integer cd305, String d30coment,
 			Integer cd311, Integer cd312, Integer cd313, Integer cd314,
 			Integer cd315, String d31coment, Integer cd321, Integer cd322,
-			Integer cd323, Integer cd324, Integer cd325, String d32coment) {
+			Integer cd323, Integer cd324, Integer cd325, String d32coment, String proyecto) {
+	
 		this.id = id;
+		this.proyecto= proyecto;
 		this.fechaCreacion = fechaCreacion;
 		this.identificacion = identificacion;
 		this.cd11 = cd11;
@@ -535,6 +538,15 @@ public class Donto implements java.io.Serializable {
 		this.fechaCreacion = fechaCreacion;
 	}
 
+	@Column(name = "proyecto")
+	public String getProyecto() {
+		return this.proyecto;
+	}
+
+	public void setProyecto(String proyecto) {
+		this.proyecto = proyecto;
+	}
+	
 	@Column(name = "identificacion")
 	public Integer getIdentificacion() {
 		return this.identificacion;

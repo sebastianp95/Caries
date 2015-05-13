@@ -29,6 +29,8 @@ import org.springframework.dao.DataAccessException;
 
 
 
+
+import com.unbosque.entidad.Departamento;
 import com.unbosque.entidad.Paciente;
 import com.unbosque.service.PacienteService;
 
@@ -176,13 +178,19 @@ public class PacienteManagedBean implements Serializable {
 	public List<Paciente> getPacientesList() {
 		pacienteList = new ArrayList<Paciente>();
 		pacienteList.addAll(getPacienteService().getPacientes());
-		
-		
 		return pacienteList;
 		
 	}
 	 
-	 
+	public List<Integer> getPacienteId() {
+        pacienteList = new ArrayList<Paciente>();
+        List<Integer> dep = new ArrayList<Integer>();
+        pacienteList.addAll(getPacienteService().getPacientes());
+        for (int i = 0; i < pacienteList.size(); i++) {
+        	dep.add(pacienteList.get(i).getIdentificacion());
+		}
+        return dep;
+    }
 	 public void  logOut() throws IOException{
 			 FacesContext context=FacesContext.getCurrentInstance();
 			   context.getExternalContext().redirect("Login.xhtml");		 

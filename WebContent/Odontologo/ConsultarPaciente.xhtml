@@ -114,18 +114,6 @@
 
 						</p:column>
 
-						<p:column headerText="Nuevo Odontograma">
-
-							<a href="Odontograma.xhtml" style='text-decoration: none'>Crear</a>
-
-						</p:column>
-
-
-						<p:column headerText="Odontograma">
-
-<a href="ConsultarOdontoSwag.xhtml" style='text-decoration: none'>Consultar</a>
-
-						</p:column>
 						<p:column headerText="Estado" style="width:50px">
 							<p:cellEditor>
 								<f:facet name="output">
@@ -145,10 +133,15 @@
 						</p:column>
 
 
-       <p:column style="width:32px">
+       <p:column headerText="Editar" style="width:50px">
            <p:rowEditor />
        </p:column>
    </p:dataTable>
+       		<h:commandLink>
+				<h:graphicImage value="../image/pdf.png" />
+				<p:dataExporter type="pdf" target="cars1"
+					fileName="pacientesList" pageOnly="true" />
+			</h:commandLink>
    
 				<h:commandLink>
 					<h:graphicImage value="../image/xml.png" />

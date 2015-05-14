@@ -60,7 +60,7 @@
           <h:form id="form">
            
        
-            <p:panel  header="Consultar Departamento " style="width: 360px; maring: 0 auto;  position: absolute; left: 200px;top: 140px; margin: 0 0 0 80px;">
+            <p:panel  header="Consultar Departamento " style="width: 360px; maring: 0 auto;  width: 570px; position: absolute; left: 200px;top: 140px; margin: 0 0 0 80px;">
  <p:growl id="msgs" showDetail="true"/>
  
    <p:dataTable id="cars1" var="_departamento" value="#{departamentoMBController.departamentosList}" editable="true" style="margin-bottom:20px; height: 350px;"
@@ -99,12 +99,18 @@
        </p:column>
       
  
-       <p:column style="width:32px">
+       <p:column headerText="Editar" style="width:50px">
            <p:rowEditor />
        </p:column>
        
 
    </p:dataTable>
+   
+       		<h:commandLink>
+				<h:graphicImage value="../image/pdf.png" />
+				<p:dataExporter type="pdf" target="cars1"
+					fileName="departamentosList" pageOnly="true" />
+			</h:commandLink>
           
    
 			<h:commandLink>

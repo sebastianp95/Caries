@@ -60,7 +60,7 @@
           <h:form id="form">
            
        
-            <p:panel  header="Consultar Ciudad " style="width: 360px; maring: 0 auto;  position: absolute; width: 470px;  left: 200px;top: 140px; margin: 0 0 0 80px;">
+            <p:panel  header="Consultar Ciudad " style="width: 360px; maring: 0 auto;  position: absolute; width: 670px;  left: 200px;top: 140px; margin: 0 0 0 80px;">
  <p:growl id="msgs" showDetail="true"/>
  
    <p:dataTable id="cars1" var="_ciudad" value="#{ciudadMBController.ciudadsList}" editable="true" style="margin-bottom:20px"
@@ -109,13 +109,18 @@
        </p:column>
       
  
-       <p:column style="width:32px">
+       <p:column headerText="Editar" style="width:50px">
            <p:rowEditor />
        </p:column>
    </p:dataTable>
    
                <h:outputText value="Exportar" style="color: blue"></h:outputText>
- 
+       		<h:commandLink>
+				<h:graphicImage value="../image/pdf.png" />
+				<p:dataExporter type="pdf" target="cars1"
+					fileName="ciudadsList" pageOnly="true" />
+			</h:commandLink>
+          
 
 			<h:commandLink>
 				<h:graphicImage value="../image/xml.png" />

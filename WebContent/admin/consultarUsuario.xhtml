@@ -60,7 +60,7 @@
           <h:form id="form">
            
        
-            <p:panel  header="Consultar Usuario " style="width: 360px; maring: 0 auto;  position: absolute; width: 1150px; height: 450px;left: 150px;top: 140px; margin: 0 0 0 80px;">
+            <p:panel  header="Consultar Usuario " style="width: 360px; maring: 0 auto;  position: absolute; width: 1130px; height: 450px;left: 135px;top: 140px; margin: 0 0 0 80px;">
  <p:growl id="msgs" showDetail="true"/>
  
    <p:dataTable id="cars1" var="_usuario" resizableColumns="true"  value="#{usuarioMBController.usuariosList}" editable="true" style="margin-bottom:20px; width: 1100px; height: 350px;"
@@ -69,6 +69,7 @@
  
        <p:ajax event="rowEdit" listener="#{usuarioMBController.modificarUsuario(_usuario)}" update=":form:msgs" />
        <p:ajax event="rowEditCancel" listener="#{usuarioMBController.onRowCancel}" update=":form:msgs" />
+       
  
        <p:column headerText="Nombres" filterBy="#{_usuario.apellidosNombres}" filterMatchMode="startsWith">
            <p:cellEditor>
@@ -103,6 +104,7 @@
                
            
        </p:column>
+
        
  
  <p:column headerText="Estado" style="width:50px">
@@ -120,11 +122,16 @@
        </p:column>
       
  
-       <p:column style="width:32px">
+       <p:column  headerText="Editar" style="width:50px">
            <p:rowEditor />
        </p:column>
    </p:dataTable>
     
+    		<h:commandLink>
+				<h:graphicImage value="../image/pdf.png" />
+				<p:dataExporter type="pdf" target="cars1"
+					fileName="usuariosList" pageOnly="true" />
+			</h:commandLink>
 
 			<h:commandLink>
 				<h:graphicImage value="../image/xml.png" />

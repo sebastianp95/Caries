@@ -238,9 +238,9 @@ public class UsuarioManagedBean implements Serializable {
 	        	 getUsuarioService().updateUsuario(user);
 			    	FacesContext.getCurrentInstance().addMessage("login error: ", new FacesMessage("Exitoso"));
 			    	Auditoria audi = new Auditoria();
-					audi.setUsuarioId(user.getLogin());
+					audi.setUsuarioId(getLogin());
 					audi.setOperacion("C");
-					audi.setDescripcion("Se a cambiado la contraseña del usuario:  "+user.getLogin());
+					audi.setDescripcion("Se a cambiado la contraseña del usuario:  "+ getLogin());
 					audi.setFechaAuditoria(new Time(System.currentTimeMillis()));
 					audi.setTablaAuditoria("tabla cambiar contraseña ");
 					getAuditoriaService().addAuditoria(audi);
@@ -323,8 +323,11 @@ public class UsuarioManagedBean implements Serializable {
 	        try {
 	        	RequestContext context = RequestContext.getCurrentInstance();
 	            FacesMessage msgs= null;
-if(verificarPass(getPassword())){
-	usuario.setApellidosNombres(getApellidosNombres());
+	            
+	          
+	        		usuario.setApellidosNombres(getApellidosNombres());
+
+	          
 	CifrarClave ci = new CifrarClave();
 	
 	
@@ -344,7 +347,7 @@ if(verificarPass(getPassword())){
     msgs = new FacesMessage(FacesMessage.SEVERITY_INFO, "Titulo",
             "Registro agregado exitosamente.");
 	
-				}
+				
 	          //  proyectojurado.setDocenteId(getDocenteId());
 	            
 	        } catch (DataAccessException e) {

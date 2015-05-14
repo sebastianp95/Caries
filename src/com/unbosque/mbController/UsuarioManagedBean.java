@@ -741,5 +741,15 @@ System.out.println(user);
 	}
 
 
+	public String getUsuG() {
+		return usuG;
+	}
+
+
+	public void setUsuG(String usuG) {
+		this.usuG = usuG;
+	}
+
+
 	
 }

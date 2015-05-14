@@ -1,7 +1,9 @@
 package com.unbosque.entidad;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
 import java.sql.Time;
 
 
@@ -15,6 +17,7 @@ public class Auditoria implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 
 	private String descripcion;
@@ -27,8 +30,7 @@ public class Auditoria implements Serializable {
 	@Column(name="tabla_auditoria")
 	private String tablaAuditoria;
 
-	@Column(name="tabla_id")
-	private String tablaId;
+	
 
 	@Column(name="usuario_id")
 	private String usuarioId;
@@ -76,13 +78,7 @@ public class Auditoria implements Serializable {
 		this.tablaAuditoria = tablaAuditoria;
 	}
 
-	public String getTablaId() {
-		return this.tablaId;
-	}
-
-	public void setTablaId(String tablaId) {
-		this.tablaId = tablaId;
-	}
+	
 
 	public String getUsuarioId() {
 		return this.usuarioId;

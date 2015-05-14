@@ -19,6 +19,7 @@
 	<bean id="Paciente" class="com.unbosque.entidad.Paciente" />
 	<bean id="Diente" class="com.unbosque.entidad.Diente" />
 	<bean id="Donto" class="com.unbosque.entidad.Donto" />
+	<bean id="Auditoria" class="com.unbosque.entidad.Auditoria" />
 	
 
 	<!-- User Service Declaration -->
@@ -53,6 +54,9 @@
 	
 	<bean id="DontoService" class="com.unbosque.service.DontoService">
 		<property name="DontoDAO" ref="DontoDAO" />
+	</bean>
+	<bean id="AuditoriaService" class="com.unbosque.service.AuditoriaService">
+		<property name="AuditoriaDAO" ref="AuditoriaDAO" />
 	</bean>
 	
 
@@ -90,6 +94,10 @@
 	<bean id="DontoDAO" class="com.unbosque.dao.DontoDAO">
 		<property name="sessionFactory" ref="SessionFactory" />
 	</bean>
+	
+	<bean id="AuditoriaDAO" class="com.unbosque.dao.AuditoriaDAO">
+		<property name="sessionFactory" ref="SessionFactory" />
+	</bean>
 
 
 	<!-- Data Source Declaration -->
@@ -119,6 +127,7 @@
 				<value>com.unbosque.entidad.Paciente</value>
 				<value>com.unbosque.entidad.Diente</value>
 				<value>com.unbosque.entidad.Donto</value>
+				<value>com.unbosque.entidad.Auditoria</value>
 				
 				
 			</list>

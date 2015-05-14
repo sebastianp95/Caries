@@ -2,6 +2,7 @@ package com.unbosque.mbController;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.sql.Time;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -13,9 +14,12 @@ import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ComponentSystemEvent;
+import javax.persistence.Column;
+import javax.persistence.Id;
 
 import org.apache.log4j.Logger;
 import org.primefaces.context.RequestContext;
@@ -32,12 +36,17 @@ import org.springframework.dao.DataAccessException;
 
 
 
+
+
+
+import com.unbosque.entidad.Auditoria;
 import com.unbosque.entidad.Departamento;
 import com.unbosque.entidad.Usuario;
 import com.unbosque.service.UsuarioService;
+import com.unbosque.service.AuditoriaService;
 
 @ManagedBean(name = "usuarioMBController")
-@ViewScoped
+@SessionScoped 
 public class UsuarioManagedBean implements Serializable {
 
 
@@ -49,8 +58,12 @@ public class UsuarioManagedBean implements Serializable {
 
 	// Spring Customer Service is injected...
 	@ManagedProperty(value = "#{UsuarioService}")
+	
 	UsuarioService usuarioService;
+	
+	@ManagedProperty(value = "#{AuditoriaService}")
 
+	AuditoriaService auditoriaService;
 	final static Logger logger = Logger.getLogger(UsuarioManagedBean.class);
 
 
@@ -76,6 +89,22 @@ public class UsuarioManagedBean implements Serializable {
 	private String newPass;
 	private String user;
 	
+	
+	
+	//atributos auditoria
+	private String descripcion;
+
+	
+	private Time fechaAuditoria;
+
+	private String operacion;
+
+	
+	private String tablaAuditoria;
+
+	private String usuarioId;
+	
+	String usuG;
 	
 	public void addUsuario() {
 		try {
@@ -113,7 +142,13 @@ public class UsuarioManagedBean implements Serializable {
 				getUsuarioService().addUsuario(usuario);
 				System.out.println("sd");
 				logger.info("Se ha registrado un nuevo Usuario");
-
+				Auditoria audi = new Auditoria();
+				audi.setUsuarioId(usuG);
+				audi.setOperacion("A");
+				audi.setDescripcion("Se a creado un usuario:  "+getLogin());
+				audi.setFechaAuditoria(new Time(System.currentTimeMillis()));
+				audi.setTablaAuditoria("tabla agregar usuario");
+				getAuditoriaService().addAuditoria(audi);
 				reset();
 				}
 			
@@ -158,6 +193,13 @@ public class UsuarioManagedBean implements Serializable {
 		try {
 			usuario.setEstado('I');
 			getUsuarioService().updateUsuario(usuario);
+			Auditoria audi = new Auditoria();
+			audi.setUsuarioId(usuG);
+			audi.setOperacion("D");
+			audi.setDescripcion("Se a eliminado el usuario: "+usuario.getLogin());
+			audi.setFechaAuditoria(new Time(System.currentTimeMillis()));
+			audi.setTablaAuditoria("eliminar usuario");
+			getAuditoriaService().addAuditoria(audi);
 		} catch (DataAccessException e) {
 			e.printStackTrace();
 		}
@@ -195,6 +237,13 @@ public class UsuarioManagedBean implements Serializable {
 	        	 user.setFechaClave(new Timestamp(treinta));
 	        	 getUsuarioService().updateUsuario(user);
 			    	FacesContext.getCurrentInstance().addMessage("login error: ", new FacesMessage("Exitoso"));
+			    	Auditoria audi = new Auditoria();
+					audi.setUsuarioId(user.getLogin());
+					audi.setOperacion("C");
+					audi.setDescripcion("Se a cambiado la contraseña del usuario:  "+user.getLogin());
+					audi.setFechaAuditoria(new Time(System.currentTimeMillis()));
+					audi.setTablaAuditoria("tabla cambiar contraseña ");
+					getAuditoriaService().addAuditoria(audi);
 			    	
 		    		context.getExternalContext().redirect("../Login.xhtml");	
 
@@ -278,11 +327,20 @@ if(verificarPass(getPassword())){
 	usuario.setApellidosNombres(getApellidosNombres());
 	CifrarClave ci = new CifrarClave();
 	
-	usuario.setPassword(ci.cifradoClave(getPassword()));
+	
    
   usuario.setEstado(getEstado().charAt(0));
    
     getUsuarioService().updateUsuario(usuario);
+    
+    Auditoria audi = new Auditoria();
+	audi.setUsuarioId(usuG);
+	audi.setOperacion("M");
+	audi.setDescripcion("Se a modificado el usuario   "+usuario.getLogin());
+	audi.setFechaAuditoria(new Time(System.currentTimeMillis()));
+	audi.setTablaAuditoria("tabla Modificar usuario");
+	getAuditoriaService().addAuditoria(audi);
+	
     msgs = new FacesMessage(FacesMessage.SEVERITY_INFO, "Titulo",
             "Registro agregado exitosamente.");
 	
@@ -344,6 +402,7 @@ System.out.println(user);
 					    FacesContext.getCurrentInstance().addMessage("login error: ", new FacesMessage("Debe Cambiar su clave: "+ ""));
 						 context.getExternalContext().redirect("admin/cambioContra.xhtml");	}
 						 else{
+							 usuG=usuario.getLogin();
 							 context.getExternalContext().redirect("admin/HomeAdmin.xhtml");	
 								block=0;
 								logger.info("Se ha registrado un nuevo Usuario");
@@ -355,6 +414,7 @@ System.out.println(user);
 					    FacesContext.getCurrentInstance().addMessage("login error: ", new FacesMessage("Debe Cambiar su clave: "+ ""));
 						 context.getExternalContext().redirect("admin/cambioContra.xhtml");	}
 					else{
+						
 						context.getExternalContext().redirect("Odontologo/HomeOdontologo.xhtml");	
 						 block=0;
 					}
@@ -608,6 +668,76 @@ System.out.println(user);
 
 	public void setUser(String user) {
 		this.user = user;
+	}
+
+
+	public Date getFecha() {
+		return fecha;
+	}
+
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+
+	public Time getFechaAuditoria() {
+		return fechaAuditoria;
+	}
+
+
+	public void setFechaAuditoria(Time fechaAuditoria) {
+		this.fechaAuditoria = fechaAuditoria;
+	}
+
+
+	public String getOperacion() {
+		return operacion;
+	}
+
+
+	public void setOperacion(String operacion) {
+		this.operacion = operacion;
+	}
+
+
+	public String getTablaAuditoria() {
+		return tablaAuditoria;
+	}
+
+
+	public void setTablaAuditoria(String tablaAuditoria) {
+		this.tablaAuditoria = tablaAuditoria;
+	}
+
+
+	public String getUsuarioId() {
+		return usuarioId;
+	}
+
+
+	public void setUsuarioId(String usuarioId) {
+		this.usuarioId = usuarioId;
+	}
+
+
+	public AuditoriaService getAuditoriaService() {
+		return auditoriaService;
+	}
+
+
+	public void setAuditoriaService(AuditoriaService auditoriaService) {
+		this.auditoriaService = auditoriaService;
 	}
 
 

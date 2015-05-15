@@ -373,16 +373,9 @@ public class UsuarioManagedBean implements Serializable {
 		
 	}
 
-	public void propUsuario(){
-		 Usuario usuario = getUsuarioService().getUsuarioByLogin(getLogin());
-
-		
-		user=usuario.getProyecto();
-		System.out.println("asdasdasdasdasdasdadasda");
-System.out.println(user);		
-	}
+	
 	public void getLogin1() throws IOException {
-		propUsuario();
+	
 		use.add(getLogin());
 		CifrarClave ci = new CifrarClave();
 		 FacesContext context = FacesContext.getCurrentInstance();
